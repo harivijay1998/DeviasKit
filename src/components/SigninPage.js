@@ -50,8 +50,9 @@ const SigninPage = () => {
   };
 
   return (
-    <Grid container>
-      <Grid item xs={6} sx={{ position: "relative" }}>
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={6} sx={{ position: "relative", width: "802px",
+          height: "715px", }}>
         <Box
           component="img"
           alt="logo"
@@ -136,18 +137,16 @@ const SigninPage = () => {
         </Box>
       </Grid>
 
-      <Grid
-        item
-        xs={6}
+      <Grid item xs={12} sm={6} 
         sx={{
           backgroundColor: "#090e23",
           paddingInline: "100px",
           paddingBlock: "50px",
           width: "802px",
-          height: "700px",
+          height: "715px",
         }}
       >
-        <Typography variant="h5" color="white" sx={{ textAlign: "center" }}>
+        <Typography variant="h5" color="white" sx={{ textAlign: "center" , paddingBlockStart:'50px' }}>
           Welcome to{" "}
           <Typography variant="span" color="green">
             Devias Kit
@@ -160,7 +159,7 @@ const SigninPage = () => {
           component="img"
           alt="kitimg"
           src="images/auth-widgets.png"
-          sx={{ width: "600px", height: "515px", objectFit: "contain" }}
+          sx={{ width: "600px", height: "515px", objectFit: "contain" , paddingInlineStart:'30px' , paddingBlockStart:'30px' }}
         />
       </Grid>
     </Grid>
