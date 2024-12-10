@@ -12,10 +12,10 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PeopleIcon from "@mui/icons-material/People";
-import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
-import SettingsIcon from "@mui/icons-material/Settings";  
+import DashboardOutlinedIcon from "@mui/icons-material/Dashboard";
+import PeopleOutlinedIcon from "@mui/icons-material/People";
+import IntegrationInstructionsOutlinedIcon from "@mui/icons-material/IntegrationInstructions";
+import SettingsOutlinedIcon from "@mui/icons-material/Settings";  
 
 import DashBoard from "./DashBoard";
 import Customers from "./Customers";
@@ -32,15 +32,17 @@ const SideBar = ({ setActiveView }) => {
   };
 
   const menuItems = [
-    { key: "Overview", icon: <DashboardIcon />, component: <DashBoard /> },
-    { key: "Customers", icon: <PeopleIcon />, component: <Customers /> },
+    { key: "Overview", icon: <DashboardOutlinedIcon />, component: <DashBoard /> },
+    { key: "Customers", icon: <PeopleOutlinedIcon />, component: <Customers /> },
     {
       key: "Integrations",
-      icon: <IntegrationInstructionsIcon />,
+      icon: <IntegrationInstructionsOutlinedIcon />,
       component: <Integrations />,
     },
-    { key: "Settings", icon: <SettingsIcon />, component: <Settings /> },
-    { key: "Account", icon: <PeopleIcon />, component: <Account /> },
+    { key: "Settings", icon: <SettingsOutlinedIcon />, component: <Settings /> },
+    { key: "Account", icon: <PeopleOutlinedIcon />, component: <Account /> },
+    { key: "Error", icon: <PeopleOutlinedIcon /> },
+
   ];
 
   return (
@@ -61,7 +63,7 @@ const SideBar = ({ setActiveView }) => {
         alt="logohome"
         sx={{height:'33',
             width:'122px',
-            paddingBlockStart:'20px',
+            paddingBlockStart:'8px',
             paddingBlockEnd:'20px',
             marginInlineStart:'10px'
         }}
@@ -70,7 +72,7 @@ const SideBar = ({ setActiveView }) => {
 <FormControl
       variant="outlined"
       sx={{
-        minWidth: 200,
+        minWidth: 220,
         backgroundColor: "#1a1a1a", 
         borderRadius: 1,
         color: "white",
@@ -100,7 +102,8 @@ const SideBar = ({ setActiveView }) => {
       </Select>
     </FormControl>
       </Box>
-      <Divider sx={{ backgroundColor: "gray", marginBottom: 2 }} />
+      <Divider sx={{ backgroundColor: "gray", marginBottom: 1,marginLeft: "-16px",     
+    marginRight: "-16px",}} />
       <List>
         {menuItems.map((item, index) => (
           <ListItem
@@ -124,7 +127,10 @@ const SideBar = ({ setActiveView }) => {
                     : "rgba(255, 255, 255, 0.1)",
               },
               borderRadius: "8px",
-              marginBottom: 1,
+              marginBottom: '13px' ,
+              textAlign:'left',
+              height:'36px',
+              left:'0px'
             }}
           >
             <ListItemIcon
@@ -133,18 +139,24 @@ const SideBar = ({ setActiveView }) => {
                   activeItem === item.key
                     ? "white"
                     : "rgba(255, 255, 255, 0.7)",
+                    marginRight: "5px", 
+      minWidth: "30px", 
               }}
             >
               {item.icon}
             </ListItemIcon>
-            <ListItemText primary={item.key} />
+            <ListItemText primary={item.key}
+            sx={{
+              flexGrow: 1, // This will make the text take up the remaining space
+            }} />
           </ListItem>
         ))}
       </List>
-      <Divider sx={{backgroundColor:'#aaa'}}/>
+      <Divider sx={{backgroundColor:'#aaa',marginLeft: "-16px",     
+    marginRight: "-16px", }}/>
 
-      <Typography variant="h6" sx={{fontSize:'20px', paddingBlockStart:'20px'}}>Need more features ?</Typography>
-      <Typography variant="p" sx={{fontSize:'15px'}}>Check out our Pro solution template</Typography>
+      <Typography variant="h6" sx={{fontSize:'15px', paddingBlockStart:'15px '}}>Need more features ?</Typography>
+      <Typography variant="p" sx={{fontSize:'12px', color:'#ccc'}}>Check out our Pro solution template</Typography>
         <Box 
           component="img"
           alt="pro-img"

@@ -1,30 +1,38 @@
-import React, { useState } from 'react';
-import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
-import Pagination from '@mui/material/Pagination';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import AppHeader from './AppHeader'; 
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { TextField,Divider } from '@mui/material'; 
-import { InputAdornment } from '@mui/material'; 
-import SearchIcon from '@mui/icons-material/Search';
-import {Button} from '@mui/material';
+import React, { useState } from "react";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+import Pagination from "@mui/material/Pagination";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import AppHeader from "./AppHeader";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { TextField, Divider } from "@mui/material";
+import { InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { Button } from "@mui/material";
 const IntegrationCard = ({ integration }) => {
   return (
-    <Grid item xs={6} sm={4} >
-      <Card sx={{
-        maxWidth: 365, height: '100%', textAlign: 'center', display: 'flex',
-        flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        border: '1px solid #c3c7cc63', borderRadius: '20px'
-      }}>
+    <Grid item xs={6} sm={4}>
+      <Card
+        sx={{
+          maxWidth: 365,
+          height: "100%",
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid #c3c7cc63",
+          borderRadius: "20px",
+        }}
+      >
         <CardMedia
           component="img"
           height="40px"
-          sx={{ textAlign: "center", width: '40px', paddingBlock: '20px' }}
+          sx={{ textAlign: "center", width: "40px", paddingBlock: "20px" }}
           image={integration.iconUrl}
           alt={integration.name}
         />
@@ -36,16 +44,34 @@ const IntegrationCard = ({ integration }) => {
             {integration.description}
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
+        <Divider sx={{ width: "100%", margin: "10px 50px" }} />
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            padding: 2,
+            width: "100%",
+            gap:'30px'
+            
+          }}
+        >
           <Typography variant="body2" color="text.secondary">
             Updated: {integration.updatedAt}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {integration.installCount} Installs
-          </Typography>
+         <Box sx={{
+          display:'flex',
+          alignItems:'center',
+          gap:'0px'
+         }}>
           <IconButton>
             <ImportExportIcon />
           </IconButton>
+          <Typography variant="body2" color="text.secondary">
+            {integration.installCount} Installs
+          </Typography>
+          </Box>
         </Box>
       </Card>
     </Grid>
@@ -58,13 +84,54 @@ const Integrations = () => {
   const itemsPerPage = 6;
 
   const integrations = [
-    { name: 'Dropbox', description: 'Dropbox is a file hosting service...', iconUrl: 'images/logo-dropbox.png', updatedAt: 'Mar 8, 2024', installCount: 594 },
-    { name: 'Medium', description: 'Medium is an online publishing platform...', iconUrl: 'images/logo-medium.png', updatedAt: 'Mar 8, 2024', installCount: 625 },
-    { name: 'Slack', description: 'Slack is a cloud-based set of team collaboration...', iconUrl: 'images/logo-slack.png', updatedAt: 'Mar 8, 2024', installCount: 857 },
-    { name: 'GitHub', description: 'GitHub is a code hosting platform...', iconUrl: 'images/logo-github.png', updatedAt: 'Mar 8, 2024', installCount: 1200 },
-    { name: 'GitHub', description: 'GitHub is a code hosting platform...', iconUrl: 'images/logo-github.png', updatedAt: 'Mar 8, 2024', installCount: 1200 },
-    { name: 'GitHub', description: 'GitHub is a code hosting platform...', iconUrl: 'images/logo-github.png', updatedAt: 'Mar 8, 2024', installCount: 1200 },
-
+    {
+      name: "Dropbox",
+      description:
+        "Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud. a personal cloud.",
+      iconUrl: "images/logo-dropbox.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 594,
+    },
+    {
+      name: "Medium",
+      description:
+        "Medium is an Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
+      iconUrl: "images/logo-medium.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 625,
+    },
+    {
+      name: "Slack",
+      description:
+        "Slack is a cloud-based sDropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
+      iconUrl: "images/logo-slack.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 857,
+    },
+    {
+      name: "GitHub",
+      description:
+        "GitHub is a Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
+      iconUrl: "images/logo-github.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 1200,
+    },
+    {
+      name: "GitHub",
+      description:
+        "GitHub is aDropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
+      iconUrl: "images/logo-github.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 1200,
+    },
+    {
+      name: "GitHub",
+      description:
+        "GitHub is a Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
+      iconUrl: "images/logo-github.png",
+      updatedAt: "Mar 8, 2024",
+      installCount: 1200,
+    },
   ];
 
   const filteredIntegrations = integrations.filter((integration) =>
@@ -77,7 +144,7 @@ const Integrations = () => {
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const displayedIntegrations = filteredIntegrations.slice(
@@ -86,35 +153,81 @@ const Integrations = () => {
   );
 
   return (
-    <>
-      <AppHeader />
-      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'20px' , top:'100px'}}>Integrations</Typography>
-      <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1100px' , top:'70px' , paddingInline:'20px', borderRadius:'10px'}}>ADD+</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'120px', right:'60px'}}>Import</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'120px', right:'40px'}}>Export</Button>
-      <Box sx={{ padding: 2, marginBlockStart:'140px' }}>
-        <TextField
-          label="Search Integrations"
-          variant="outlined"
-          value={search}
-          onChange={handleSearchChange}
-          sx={{ marginBottom: 2 }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
+    < >
+    <Box sx={{marginBlockStart:'30px'}}>    
+        <AppHeader />
+      <Typography
+        variant="h4"
+        color="black"
+        sx={{ position: "relative", paddingInlineStart: "20px", top: "100px" }}
+      >
+        Integrations
+      </Typography>
+      <Button
+        sx={{
+          backgroundColor: "#635bff",
+          color: "white",
+          position: "relative",
+          left: "1100px",
+          top: "70px",
+          paddingInline: "20px",
+          borderRadius: "10px",
+        }}
+      >
+        ADD+
+      </Button>
+      <Button
+        sx={{
+          backgroundColor: "white",
+          color: "black",
+          border: "1px solid #c3c7cc63",
+          top: "120px",
+          right: "60px",
+        }}
+      >
+        <IconButton>
+            <ImportExportIcon />
+          </IconButton>Import
+      </Button>
+      <Button
+        sx={{
+          backgroundColor: "white",
+          color: "black",
+          border: "1px solid #c3c7cc63",
+          top: "120px",
+          right: "40px",
+        }}
+      >
+        <IconButton>
+            <ImportExportIcon />
+          </IconButton>Export
+      </Button>
+
+      <Box sx={{ padding: 2, marginBlockStart: "140px" }}>
+        <Box sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
+          <TextField
+            placeholder="Search Integrations"
+            variant="outlined"
+            value={search}
+            onChange={handleSearchChange}
+            sx={{ marginBlock: 2, marginInlineStart: 2, width: "500px" }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Box>
       </Box>
       <Box>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ paddingLeft: "20px" }}>
           {displayedIntegrations.map((integration, index) => (
             <IntegrationCard key={index} integration={integration} />
           ))}
         </Grid>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           <Pagination
             count={Math.ceil(filteredIntegrations.length / itemsPerPage)}
             page={currentPage}
@@ -122,6 +235,8 @@ const Integrations = () => {
           />
         </Box>
       </Box>
+      </Box>
+
     </>
   );
 };

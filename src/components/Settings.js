@@ -67,11 +67,11 @@ const Settings = () => {
       <AppHeader />
       <Typography
         variant="h4"
-        sx={{ position: "relative", top: "100px", left: "0px" , paddingInlineStart:'30px' }}
+        sx={{ position: "relative", top: "130px", left: "0px" , paddingInlineStart:'30px' }}
       >
         Settings
       </Typography>
-      <Box sx={{ padding: 2, marginBlockStart: "100px" }}>
+      <Box sx={{ padding: 2, marginBlockStart: "130px" }}>
         <Box
           sx={{
             mt: 2,
@@ -144,7 +144,7 @@ const Settings = () => {
             </Box>
           </Box>
           <Divider sx={{backgroundColor:'#c3c7cc63', marginBlockStart:'10px'}}></Divider>
-            <Button color="primary" variant="contained" sx={{position:'relative', top:'15px', left:'1040px', borderRadius:'10px',textTransform:'none'}}>Save changes</Button>
+            <Button color="primary" variant="contained" sx={{position:'relative', top:'15px', left:'1060px', borderRadius:'10px',textTransform:'none'}}>Save changes</Button>
         </Box>
 
         <Box
@@ -163,24 +163,17 @@ const Settings = () => {
             }}
           >
             <Typography variant="h6">Password</Typography>
+            <Typography variant="p" color="#aaa">Update Password</Typography>
           </Box>
-          <Box sx={{ paddingInlineStart: "20px" }}>
+          <Box sx={{ paddingInlineStart: "20px", paddingBlock:'20px' }}>
+           
             <TextField
-              label="Current Password"
-              type="password"
-              value={currentPassword}
-              onChange={handlePasswordChange}
-              name="currentPassword"
-              sx={{ mt: 2, width: "70%" }}
-              required
-            />
-            <TextField
-              label="New Password"
+              label="Password"
               type="password"
               value={newPassword}
               onChange={handlePasswordChange}
               name="newPassword"
-              sx={{ mt: 2, width: "70%" }}
+              sx={{ mt: 2, width: "70%", borderRadius:'20px' }}
               required
             />
             <TextField

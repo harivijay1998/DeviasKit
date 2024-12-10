@@ -97,19 +97,22 @@ const Customers = () => {
       <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'50px'}}>Import</Button>
       <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'30px'}}>Export</Button>
     <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'150px'}}>
-      <TextField
-        label="Search Customers"
+      <Box sx={{ border: "1px solid #c3c7cc63", borderRadius:'20px'}}>    
+          <TextField
+        
         variant="outlined"
         value={search}
         onChange={handleSearchChange}
-        sx={{ marginBottom: 2 }}
+        placeholder="SEARCH CUSTOMER"
+        sx={{ marginBlock: 2, marginInlineStart:2, width:'500px'}}
         InputProps={{
           startAdornment:(
             <InputAdornment position="start"><SearchIcon/></InputAdornment>
           )
         }}
-      />
-      <TableContainer component={Paper}>
+      /></Box>
+
+      <TableContainer component={Paper} sx={{borderRadius:'20px', top:'50px', position:'relative'}}>
         <Table>
           <TableHead>
             <TableRow>
@@ -158,9 +161,7 @@ const Customers = () => {
               ))}
           </TableBody>
         </Table>
-      </TableContainer>
-
-      <TablePagination
+        <TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
         count={filteredCustomers.length}
@@ -168,7 +169,11 @@ const Customers = () => {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        
       />
+      </TableContainer>
+
+     
     </Box>
     </>
   );

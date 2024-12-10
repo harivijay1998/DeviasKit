@@ -94,7 +94,7 @@ const SigninPage = () => {
                   error={Boolean(errors.email && touched.email)}
                   helperText={errors.email && touched.email && errors.email}
                   sx={{
-                    marginBottom: "20px",
+                    marginBottom: "30px",
                     height: "50px",
                     width: "450px",
                     mt: 2,
@@ -109,7 +109,7 @@ const SigninPage = () => {
                   error={Boolean(errors.password && touched.password)}
                   helperText={errors.password && touched.password && errors.password}
                   sx={{
-                    marginBottom: "20px",
+                    marginBottom: "30px",
                     height: "50px",
                     width: "450px",
                   }}

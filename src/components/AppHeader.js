@@ -13,15 +13,19 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  Badge,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import SearchIcon from '@mui/icons-material/Search';
-import PeopleIcon from '@mui/icons-material/People';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 
 const AppHeader = ({ onSearchToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const [openAvatarModal, setOpenAvatarModal] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(5); 
+  const navigate = useNavigate(); 
 
   const handleSearch = () => {
     setIsOpen((prevState) => {
@@ -36,13 +40,17 @@ const AppHeader = ({ onSearchToggle }) => {
   const handleOpenAvatarModal = () => setOpenAvatarModal(true);
   const handleCloseAvatarModal = () => setOpenAvatarModal(false);
 
+  const handleNavigation = (path) => {
+    setOpenAvatarModal(false); 
+    navigate(path); 
+  };
+
   return (
     <AppBar
       position="absolute"
       color="transparent"
-      
       elevation={0}
-      sx={{ borderBottom: '1px solid #c3c7cc63',width:'81%', backgroundColor:'white', height:'65px' }}
+      sx={{ borderBottom: '1px solid #c3c7cc63', width: '81%', backgroundColor: 'white', height: '65px' }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
@@ -64,12 +72,18 @@ const AppHeader = ({ onSearchToggle }) => {
             />
           )}
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <IconButton color="inherit">
-            <PeopleIcon />
+            <PeopleAltOutlinedIcon />
           </IconButton>
           <IconButton color="inherit">
-            <NotificationsIcon />
+            <Badge
+              badgeContent={notificationCount}
+              color="error" 
+              overlap="circular"
+            >
+              <NotificationsNoneOutlinedIcon />
+            </Badge>
           </IconButton>
           <Avatar
             src="https://randomuser.me/api/portraits/women/68.jpg"
@@ -98,8 +112,8 @@ const AppHeader = ({ onSearchToggle }) => {
               border: '1px solid #ccc',
               p: 4,
               position: 'absolute',
-              top: '30%',
-              right: '10%',
+              top: '29%',
+              right: '-10%',
               transform: 'translate(-50%, -50%)',
               borderRadius: '20px',
             }}
@@ -113,10 +127,10 @@ const AppHeader = ({ onSearchToggle }) => {
                 <ListItemText primary="SofiaRivers@example.com" />
               </ListItem>
               <Divider />
-              <ListItem>
+              <ListItem button onClick={() => handleNavigation('/settings')}>
                 <ListItemText primary="Settings" />
               </ListItem>
-              <ListItem>
+              <ListItem button onClick={() => handleNavigation('/')}>
                 <ListItemText primary="Logout" />
               </ListItem>
             </List>
