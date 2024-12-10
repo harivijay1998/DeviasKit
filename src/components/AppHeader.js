@@ -42,7 +42,7 @@ const AppHeader = ({ onSearchToggle }) => {
       color="transparent"
       
       elevation={0}
-      sx={{ borderBottom: '1px solid #c3c7cc63',width:'81%', backgroundColor:'white' }}
+      sx={{ borderBottom: '1px solid #c3c7cc63',width:'81%', backgroundColor:'white', height:'65px' }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>

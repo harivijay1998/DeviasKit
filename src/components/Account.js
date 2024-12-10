@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import { Divider } from '@mui/material';
 import AppHeader from './AppHeader';
 
@@ -34,9 +33,9 @@ const Account= () => {
   return (
     <>
     <AppHeader/>
-    <Typography variant='h3' color='black' sx={{position:'relative', left:'30px' , top:'120px'}}>Account</Typography>
+    <Typography variant='h4' color='black' sx={{position:'relative',paddingInlineStart:'30px' , top:'120px', width:'100px', fontWeight:500}}>Account</Typography>
     <Grid container spacing={2} sx={{paddingInline:'50px',paddingBlock:'50px',gap:'20px', position:'relative', marginBlockStart:'100px'}}>
-      <Grid item xs={12} md={5} sx={{border:'1px solid #c3c7cc63',paddingBlock:'0px',height:'350px',borderRadius:'20px'}}>
+      <Grid item xs={4} sx={{border:'1px solid #c3c7cc63',paddingBlock:'0px',height:'350px',borderRadius:'20px',width:'300px'}}>
         <Box sx={{ display: 'flex', flexDirection:'column',alignItems: 'center', marginBottom: 2 ,paddingBlock:'50px' ,paddingInline:'50px' }}>
           <Avatar alt="Sofia Rivers" src="images/avatar.png" sx={{ width: 80, height: 80, marginRight: 2 }} />
           <div>
@@ -45,14 +44,14 @@ const Account= () => {
             <Typography variant="body2">GMT-7</Typography>
           </div>
         </Box>
-        <Button variant="contained" component="label" sx={{left:'140px',top:'-30px' ,backgroundColor:'transparent', color:"#1565c0", boxShadow:'none'}}>
+        <Button variant="contained" component="label" sx={{left:'100px',top:'-30px' ,backgroundColor:'transparent', color:"#1565c0", boxShadow:'none'}}>
           Upload picture
           <input type="file" hidden />
         </Button>
         
       </Grid>
 
-      <Grid item xs={12} md={6} sx={{border:'1px solid #c3c7cc63', paddingInline:'20px', paddingBlock:'30px',borderRadius:'20px'}}>
+      <Grid item xs={7} sx={{border:'1px solid #c3c7cc63', paddingInline:'20px', paddingBlock:'30px',borderRadius:'20px'}}>
         <Typography variant="h4">Profile</Typography>
         <Typography variant="body2" sx={{marginBottom:'10px'}}>The information can be edited</Typography>
         <Divider sx={{backgroundColor:'#c3c7cc63'}}></Divider>
@@ -120,7 +119,7 @@ const Account= () => {
           </Grid>
           <Divider sx={{backgroundColor:'#c3c7cc63'}}></Divider>
 
-          <Button variant="contained" type="submit" sx={{ marginTop: 2 ,left:'400px' }}>
+          <Button variant="contained" type="submit" sx={{ marginTop: 2 ,left:'500px' }}>
             Save details
           </Button>
           <Divider sx={{backgroundColor:'#c3c7cc63', marginBlockStart:'10px'}}></Divider>
