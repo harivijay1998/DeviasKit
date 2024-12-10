@@ -44,7 +44,7 @@ const Account= () => {
             <Typography variant="body2">GMT-7</Typography>
           </div>
         </Box>
-        <Button variant="contained" component="label" sx={{left:'100px',top:'-30px' ,backgroundColor:'transparent', color:"#1565c0", boxShadow:'none'}}>
+        <Button variant="contained" component="label" sx={{left:'10 0px',top:'-30px' ,backgroundColor:'transparent', color:"#1565c0", boxShadow:'none'}}>
           Upload picture
           <input type="file" hidden />
         </Button>
