@@ -64,7 +64,7 @@ const AppHeader = ({ onSearchToggle }) => {
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <IconButton onClick={handleSearch} >
-            <SearchIcon sx={{height:'30px', fontSize:'50px', left:'-20px', position:'relative' , fontWeight:200}} />
+            <SearchIcon sx={{height:'30px', fontSize:'50px', left:'-25px', position:'relative' , fontWeight:200, top:'0px'}} />
           </IconButton>
           {isOpen && (
             <InputBase

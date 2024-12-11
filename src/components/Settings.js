@@ -67,11 +67,11 @@ const Settings = () => {
       <AppHeader />
       <Typography
         variant="h4"
-        sx={{ position: "relative", top: "130px", left: "0px" , paddingInlineStart:'30px' , fontWeight:500}}
+        sx={{ position: "relative", top: "125px", left: "-10px" , paddingInlineStart:'30px' , fontWeight:500}}
       >
         Settings
       </Typography>
-      <Box sx={{ padding: 2, marginBlockStart: "120px" }}>
+      <Box sx={{ padding: 1, marginBlockStart: "120px", marginInlineStart:'10px' }}>
         <Box
           sx={{
             mt: 2,
@@ -83,15 +83,16 @@ const Settings = () => {
           <Box
             sx={{
               borderBottom: "1px solid #c3c7cc63",
-              paddingInlineStart: "20px",
-              paddingBlockEnd: "20px",
+              paddingInlineStart: "25px",
+              paddingBlockEnd: "10px",
+              paddingBlockStart:"0px"
             }}
           >
             <Typography variant="h6" sx={{fontSize:'20px'}}>Notifications</Typography>
-            <Typography variant="body2" color="gray">Manage the notifications</Typography>
+            <Typography variant="body2" color="gray" sx={{position:'relative', top:'-5px'}}>Manage the notifications</Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: "40px", paddingBlock:'20px' }}>
-            <Box sx={{ mt: 2, paddingInlineStart: "20px" }}>
+            <Box sx={{ mt: 0, paddingInlineStart: "25px" , paddingBlockStart:'-20px'}}>
               <Typography variant="h6">Email</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <FormControlLabel
@@ -117,7 +118,7 @@ const Settings = () => {
               </Box>
             </Box>
 
-            <Box sx={{ mt: 2, paddingInlineStart: "150px" }}>
+            <Box sx={{ mt: 1, paddingInlineStart: "190px" }}>
               <Typography variant="h6">Phone</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <FormControlLabel
@@ -149,23 +150,25 @@ const Settings = () => {
 
         <Box
           sx={{
-            mt: 4,
+            mt: 2,
             border: "1px solid #c3c7cc63",
             borderRadius: "20px",
-            paddingBlockEnd: "30px",
+            paddingBlockEnd: "10px",
           }}
         >
           <Box
             sx={{
               borderBottom: "1px solid #c3c7cc63",
-              paddingBlock: "20px",
-              paddingInlineStart: "30px",
+              paddingBlockEnd: "10px",
+              paddingBlockStart:'25px',
+              paddingInlineStart: "20px",
+              
             }}
           >
             <Typography variant="h6">Password</Typography>
-            <Typography variant="p" color="#aaa">Update Password</Typography>
+            <Typography variant="p" color="#aaa"sx={{position:'relative', top:'-5px'}}>Update Password</Typography>
           </Box>
-          <Box sx={{ paddingInlineStart: "20px", paddingBlock:'20px' }}>
+          <Box sx={{ paddingInlineStart: "20px", paddingBlock:'15px' }}>
            
             <TextField
               label="Password"
@@ -186,12 +189,12 @@ const Settings = () => {
               required
             />
           </Box>
-          <Divider sx={{backgroundColor:'#c3c7cc63', marginBlockStart:'10px'}}></Divider>
+          <Divider sx={{backgroundColor:'#c3c7cc63', marginBlockStart:'20px'}}></Divider>
 
           <Button
           variant="contained"
           color="primary"
-          sx={{ mt: 2, textTransform:'none', top:'10px', left:'1100px', borderRadius:'10px' }}
+          sx={{ mt: 2, textTransform:'none', top:'0px', left:'1100px', borderRadius:'10px' }}
           onClick={handleSaveChanges}
         >
           Update

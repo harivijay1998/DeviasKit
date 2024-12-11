@@ -33,7 +33,7 @@ const Account= () => {
   return (
     <>
     <AppHeader/>
-    <Typography variant='h4' color='black' sx={{position:'relative',paddingInlineStart:'30px' , top:'120px', width:'100px', fontWeight:500}}>Account</Typography>
+    <Typography variant='h4' color='black' sx={{position:'relative',paddingInlineStart:'20px' , top:'125px', width:'100px', fontWeight:500}}>Account</Typography>
     <Grid container spacing={2} sx={{paddingInlineStart:'30px',paddingBlock:'50px',gap:'50px', position:'relative', marginBlockStart:'100px'}}>
       <Grid item xs={3} sx={{border:'1px solid #c3c7cc63',paddingBlock:'0px',height:'350px',borderRadius:'20px',width:'300px'}}>
         <Box sx={{ display: 'flex', flexDirection:'column',alignItems: 'center', marginBottom: 2 ,paddingBlock:'50px' ,paddingInline:'50px' }}>

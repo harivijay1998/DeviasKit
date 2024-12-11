@@ -11,7 +11,7 @@ const Home = () => {
       <Box
   sx={{
     flexGrow: 1,
-    marginInlineStart: "285px",
+    marginInlineStart: "290px",
     backgroundColor: "#f5f5f5",
     overflow: "visible", 
     height: "auto",      

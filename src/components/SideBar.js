@@ -70,40 +70,61 @@ const SideBar = ({ setActiveView }) => {
         ></Box>
 
 <FormControl
-      variant="outlined"
-      sx={{
-        minWidth: 220,
-        backgroundColor: "#1a1a1a", 
-        borderRadius: 1,
-        color: "white",
-        marginInlineStart:'10px',
-        height:'57px'
-      }}
-    >
-      <InputLabel sx={{ color: "gray" }}>Workspace</InputLabel>
-      <Select
-        value={workspace}
-        onChange={handleChange}
-        label="Workspace"
-        sx={{
-          color: "white",
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "gray",
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white",
-          },
-          "& .MuiSvgIcon-root": {
-            color: "white",
-          },
-        }}
-      >
-        <MenuItem value="Devias">Devias</MenuItem>
-        <MenuItem value="Other">Other</MenuItem>
-      </Select>
-    </FormControl>
+  variant="outlined"
+  sx={{
+    width: '210px',
+    backgroundColor: "#1E1E2D", 
+    borderRadius: "10px",
+    paddingInline: "10px",
+    paddingBlock:'10px', 
+    height: "30px", 
+    border: "1px solid #444", 
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    marginInlineStart:'10px',
+    marginTop:'-5px'
+
+  }}
+>
+  <Typography
+    variant="subtitle2"
+    sx={{
+      color: "#b3b3b3", 
+      fontSize: "12px", 
+      marginBottom: "5px",
+    }}
+  >
+    Workspace
+  </Typography>
+  <Select
+    value={workspace}
+    onChange={handleChange}
+    sx={{
+      color: "white", 
+      "& .MuiOutlinedInput-notchedOutline": {
+        border: "none", 
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        border: "none",
+      },
+      "& .MuiSvgIcon-root": {
+        color: "white", 
+      },
+      fontSize: "16px", 
+      fontWeight: "bold", 
+      paddingLeft: "10px", 
+    }}
+    disableUnderline 
+    variant="standard" 
+  >
+    <MenuItem value="Devias">Devias</MenuItem>
+    <MenuItem value="Other">Other</MenuItem>
+  </Select>
+</FormControl>
+
       </Box>
-      <Divider sx={{ backgroundColor: "gray", marginBottom: 0,marginLeft: "-16px",     
+      <Divider sx={{ backgroundColor: "#2a3040", marginBottom: 1,marginLeft: "-16px", marginBlockStart:3,     
     marginRight: "-16px",}} />
       <List>
         {menuItems.map((item, index) => (
@@ -128,11 +149,12 @@ const SideBar = ({ setActiveView }) => {
                     : "rgba(255, 255, 255, 0.1)",
               },
               borderRadius: "8px",
-              marginBottom: '8px' ,
+              marginBottom: '15px' ,
               textAlign:'left',
               height:'38px',
               left:'0px',
-              
+              width:'253px',
+              marginTop:'-5px'
             }}
           >
             <ListItemIcon
@@ -141,8 +163,8 @@ const SideBar = ({ setActiveView }) => {
                   activeItem === item.key
                     ? "white"
                     : "rgba(255, 255, 255, 0.7)",
-                    marginRight: "5px", 
-      minWidth: "30px", 
+                    marginRight: "-20px", 
+      minWidth: "30 px", 
               }}
             >
               {item.icon}
@@ -157,11 +179,11 @@ const SideBar = ({ setActiveView }) => {
           </ListItem>
         ))}
       </List>
-      <Divider sx={{backgroundColor:'#aaa',marginLeft: "-16px",     
-    marginRight: "-16px", }}/>
+      <Divider sx={{backgroundColor:'#2a3040',marginLeft: "-16px",     
+    marginRight: "-16px", marginBlockStart:'-10px' }}/>
 
-      <Typography variant="h6" sx={{fontSize:'15px', paddingBlockStart:'15px', paddingBlockEnd:'-3px'}}>Need more features ?</Typography>
-      <Typography variant="p" sx={{fontSize:'14px', color:'#ccc'}}>Check out our Pro solution template</Typography>
+      <Typography variant="h6" sx={{fontSize:'15px', paddingBlockStart:'15px', paddingBlockEnd:'-3px', wordSpacing:'2'}}>Need more features ?</Typography>
+      <Typography variant="p" sx={{fontSize:'15px', color:'#ccc', position:'relative' , top:'-5px'}}>Check out our Pro solution template</Typography>
         <Box 
           component="img"
           alt="pro-img"
@@ -170,7 +192,7 @@ const SideBar = ({ setActiveView }) => {
             height:'136px',
             width:'160px',
             paddingBlockStart:'15px',
-            paddingInlineStart:'40px'
+            paddingInlineStart:'43px'
           }}/>
           
     </Box>

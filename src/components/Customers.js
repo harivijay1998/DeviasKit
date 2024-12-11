@@ -101,19 +101,21 @@ const Customers = () => {
     <>
     <Box sx={
       {
-        height:'130vh'
+        height:'130vh',
+        marginLeft:'-10px',
+        marginBlockStart:'8px'
       }
     }>
     <AppHeader/>
-      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'120px'}}>Customers</Typography>
-      <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1100px' , top:'90px' , paddingInline:'20px', borderRadius:'10px'}}>ADD+</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'50px', height:'43px'}}><IconButton>
+      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'120px', left:'-5px'}}>Customers</Typography>
+      <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1130px' , top:'80px' , paddingInline:'20px', borderRadius:'10px', paddingBlock:'8px'}}>+ Add</Button>
+      <Button sx={{backgroundColor:'white' , color:'black', top:'127px', right:'55px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Import</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'30px', height:'43px'}}><IconButton>
+      <Button sx={{backgroundColor:'white' , color:'black' , top:'127px', right:'40px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Export</Button>
-    <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'150px'}}>
+    <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'140px' , left:'10px', width:'1180px'}}>
       <Box sx={{ border: "1px solid #c3c7cc63", borderRadius:'20px'}}>    
           <TextField
         
@@ -176,7 +178,7 @@ const Customers = () => {
               alt={customer.name}
               sx={{ marginRight: "10px" }}
             >
-              {customer.name[0]} {/* Fallback initials if no avatar */}
+              {customer.name[0]}
             </Avatar>
             {customer.name}
           </Box>

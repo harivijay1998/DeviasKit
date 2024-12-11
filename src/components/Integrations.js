@@ -15,10 +15,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
 const IntegrationCard = ({ integration }) => {
   return (
-    <Grid item xs={6} sm={4}>
+    <Grid item xs={7} sm={4}>
       <Card
         sx={{
-          maxWidth: 365,
+          maxWidth: 380,
           height: "100%",
           textAlign: "center",
           display: "flex",
@@ -27,13 +27,14 @@ const IntegrationCard = ({ integration }) => {
           justifyContent: "center",
           border: "1px solid #c3c7cc63",
           borderRadius: "20px",
-          height:'270px'
+          height:'270px',
+          marginBlockStart:'10px'
         }}
       >
         <CardMedia
           component="img"
           height="40px"
-          sx={{ textAlign: "center", width: "40px", paddingBlockStart: "20px" }}
+          sx={{ textAlign: "center", width: "40px", paddingBlockStart: "50px" }}
           image={integration.iconUrl}
           alt={integration.name}
         />
@@ -41,11 +42,11 @@ const IntegrationCard = ({ integration }) => {
           <Typography gutterBottom variant="h5" component="div">
             {integration.name}
           </Typography>
-          <Typography variant="p" color="balck">
+          <Typography variant="p" color="balck" sx={{fontSize:'17px'}}>
             {integration.description}
           </Typography>
         </CardContent>
-        <Divider sx={{ width: "100%", margin: "10px 50px" }} />
+        <Divider sx={{ width: "100%", marginBlockStart:'10px' }} />
 
         <Box
           sx={{
@@ -160,12 +161,12 @@ const Integrations = () => {
 
   return (
     < >
-    <Box sx={{marginBlockStart:'30px', height:'150vh'}}>    
+    <Box sx={{marginBlockStart:'30px', height:'150vh', marginInlineStart:'-5px'}}>    
         <AppHeader />
       <Typography
         variant="h4"
         color="black"
-        sx={{ position: "relative", paddingInlineStart: "20px", top: "100px" }}
+        sx={{ position: "relative", paddingInlineStart: "20px", top: "95px" }}
       >
         Integrations
       </Typography>
@@ -186,10 +187,10 @@ const Integrations = () => {
         sx={{
           backgroundColor: "white",
           color: "black",
-          border: "1px solid #c3c7cc63",
-          top: "120px",
-          right: "60px",
-          height:'43px'
+          top: "100px",
+          right: "70px",
+          height:'43px',
+          textTransform:'none'
         }}
       >
         <IconButton>
@@ -200,10 +201,10 @@ const Integrations = () => {
         sx={{
           backgroundColor: "white",
           color: "black",
-          border: "1px solid #c3c7cc63",
-          top: "120px",
-          right: "40px",
-          height:'43px'
+          top: "100px",
+          right: "70px",
+          height:'43px',
+          textTransform:'none'
         }}
       >
         <IconButton>
@@ -211,7 +212,7 @@ const Integrations = () => {
           </IconButton>Export
       </Button>
 
-      <Box sx={{ padding: 2, marginBlockStart: "140px" }}>
+      <Box sx={{ padding: 2, marginBlockStart: "110px" }}>
         <Box sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
           <TextField
             placeholder="Search Integrations"

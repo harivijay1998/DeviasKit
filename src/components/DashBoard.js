@@ -209,11 +209,11 @@ const Dashboard = () => {
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
           minHeight: "180vh",
-          marginTop: "130px",
+          marginTop: "120px",
           marginBlockEnd:'130px'
         }}
       >
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {statCards.map((item, index) => (
             <Grid
               item
@@ -229,7 +229,7 @@ const Dashboard = () => {
                   paddingBlockStart: 3,
                   border: "1px solid #c3c7cc63",
                   borderRadius: "20px",
-                  height: "150px",
+                  height: "160px",
                   width: "280px",
                   boxShadow: "none",
                   paddingInline: 0,
