@@ -67,11 +67,11 @@ const Settings = () => {
       <AppHeader />
       <Typography
         variant="h4"
-        sx={{ position: "relative", top: "130px", left: "0px" , paddingInlineStart:'30px' }}
+        sx={{ position: "relative", top: "130px", left: "0px" , paddingInlineStart:'30px' , fontWeight:500}}
       >
         Settings
       </Typography>
-      <Box sx={{ padding: 2, marginBlockStart: "130px" }}>
+      <Box sx={{ padding: 2, marginBlockStart: "120px" }}>
         <Box
           sx={{
             mt: 2,
@@ -87,10 +87,10 @@ const Settings = () => {
               paddingBlockEnd: "20px",
             }}
           >
-            <Typography variant="h6">Notifications</Typography>
-            <Typography variant="body2">Manage the notifications</Typography>
+            <Typography variant="h6" sx={{fontSize:'20px'}}>Notifications</Typography>
+            <Typography variant="body2" color="gray">Manage the notifications</Typography>
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: "40px" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "40px", paddingBlock:'20px' }}>
             <Box sx={{ mt: 2, paddingInlineStart: "20px" }}>
               <Typography variant="h6">Email</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -117,7 +117,7 @@ const Settings = () => {
               </Box>
             </Box>
 
-            <Box sx={{ mt: 2, paddingInlineStart: "20px" }}>
+            <Box sx={{ mt: 2, paddingInlineStart: "150px" }}>
               <Typography variant="h6">Phone</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <FormControlLabel

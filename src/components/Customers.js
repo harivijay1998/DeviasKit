@@ -15,15 +15,19 @@ import {
   Typography,
   Box,
   InputAdornment,
+  Avatar
  
 } from "@mui/material";
 import AppHeader from "./AppHeader";
 import SearchIcon from '@mui/icons-material/Search'
+import IconButton from "@mui/material/IconButton"
+import ImportExportIcon from "@mui/icons-material/ImportExport"
 
 const customers = [
   {
     id: 1,
     name: "Alcides Antonio",
+    avatarUrl:'images/avatar.png',
     email: "alcides.antonio@devias.io",
     location: "Madrid, Comunidad de Madrid, Spain",
     phone: "908-691-3242",
@@ -32,6 +36,7 @@ const customers = [
   {
     id: 2,
     name: "Marcus Finn",
+    avatarUrl:'images/avatar.png',
     email: "marcus.finn@devias.io",
     location: "Carson City, Nevada, USA",
     phone: "415-907-2647",
@@ -40,6 +45,7 @@ const customers = [
   {
     id: 3,
     name: "Jie Yan",
+    avatarUrl:'images/avatar.png',
     email: "jie.yan.song@devias.io",
     location: "North Canton, Ohio, USA",
     phone: "770-635-2682",
@@ -48,6 +54,7 @@ const customers = [
   {
     id: 4,
     name: "Nasimiyu Danai",
+    avatarUrl:'images/avatar.png',
     email: "nasimiyu.danai@devias.io",
     location: "Salt Lake City, Utah, USA",
     phone: "801-301-7894",
@@ -56,6 +63,7 @@ const customers = [
   {
     id: 5,
     name: "Iulia Albu",
+    avatarUrl:'images/avatar.png',
     email: "iulia.albu@devias.io",
     location: "Murray, Utah, USA",
     phone: "313-812-8947",
@@ -91,11 +99,20 @@ const Customers = () => {
 
   return (
     <>
+    <Box sx={
+      {
+        height:'130vh'
+      }
+    }>
     <AppHeader/>
       <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'120px'}}>Customers</Typography>
       <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1100px' , top:'90px' , paddingInline:'20px', borderRadius:'10px'}}>ADD+</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'50px'}}>Import</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'30px'}}>Export</Button>
+      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'50px', height:'43px'}}><IconButton>
+            <ImportExportIcon />
+          </IconButton>Import</Button>
+      <Button sx={{backgroundColor:'white' , color:'black', border:'1px solid #c3c7cc63', top:'130px', right:'30px', height:'43px'}}><IconButton>
+            <ImportExportIcon />
+          </IconButton>Export</Button>
     <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'150px'}}>
       <Box sx={{ border: "1px solid #c3c7cc63", borderRadius:'20px'}}>    
           <TextField
@@ -103,8 +120,8 @@ const Customers = () => {
         variant="outlined"
         value={search}
         onChange={handleSearchChange}
-        placeholder="SEARCH CUSTOMER"
-        sx={{ marginBlock: 2, marginInlineStart:2, width:'500px'}}
+        placeholder="Search Customer"
+        sx={{ marginBlock: 2, marginInlineStart:2, width:'500px',}}
         InputProps={{
           startAdornment:(
             <InputAdornment position="start"><SearchIcon/></InputAdornment>
@@ -112,11 +129,11 @@ const Customers = () => {
         }}
       /></Box>
 
-      <TableContainer component={Paper} sx={{borderRadius:'20px', top:'50px', position:'relative'}}>
+      <TableContainer component={Paper} sx={{borderRadius:'20px', top:'20px', position:'relative'}}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
+              <TableCell sx={{height:'46px', paddingBlock:0}}>
                 <Checkbox
                   indeterminate={selected.length > 0 && selected.length < filteredCustomers.length}
                   checked={filteredCustomers.length > 0 && selected.length === filteredCustomers.length}
@@ -129,7 +146,7 @@ const Customers = () => {
                   }}
                 />
               </TableCell>
-              <TableCell>Name</TableCell>
+              <TableCell >Name</TableCell>
               <TableCell>Email</TableCell>
               <TableCell>Location</TableCell>
               <TableCell>Phone</TableCell>
@@ -152,7 +169,19 @@ const Customers = () => {
                       }}
                     />
                   </TableCell>
-                  <TableCell>{customer.name}</TableCell>
+                  <TableCell>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Avatar
+              src={customer.avatarUrl}
+              alt={customer.name}
+              sx={{ marginRight: "10px" }}
+            >
+              {customer.name[0]} {/* Fallback initials if no avatar */}
+            </Avatar>
+            {customer.name}
+          </Box>
+          </TableCell>
+                  
                   <TableCell>{customer.email}</TableCell>
                   <TableCell>{customer.location}</TableCell>
                   <TableCell>{customer.phone}</TableCell>
@@ -174,6 +203,7 @@ const Customers = () => {
       </TableContainer>
 
      
+    </Box>
     </Box>
     </>
   );

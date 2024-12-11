@@ -9,13 +9,14 @@ const Home = () => {
   return (
     <Box sx={{ display: "flex", height: "100vh" }}>
       <Box
-        sx={{
-          flexGrow: 1,
-          marginInlineStart:'285px',
-          overflowY: "auto",
-          backgroundColor: "#f5f5f5",
-        }}
-      >
+  sx={{
+    flexGrow: 1,
+    marginInlineStart: "285px",
+    backgroundColor: "#f5f5f5",
+    overflow: "visible", 
+    height: "auto",      
+  }}
+>
         {activeView} 
       </Box>
 

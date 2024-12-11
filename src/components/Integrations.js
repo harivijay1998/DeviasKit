@@ -27,12 +27,13 @@ const IntegrationCard = ({ integration }) => {
           justifyContent: "center",
           border: "1px solid #c3c7cc63",
           borderRadius: "20px",
+          height:'270px'
         }}
       >
         <CardMedia
           component="img"
           height="40px"
-          sx={{ textAlign: "center", width: "40px", paddingBlock: "20px" }}
+          sx={{ textAlign: "center", width: "40px", paddingBlockStart: "20px" }}
           image={integration.iconUrl}
           alt={integration.name}
         />
@@ -40,7 +41,7 @@ const IntegrationCard = ({ integration }) => {
           <Typography gutterBottom variant="h5" component="div">
             {integration.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="p" color="balck">
             {integration.description}
           </Typography>
         </CardContent>
@@ -53,7 +54,10 @@ const IntegrationCard = ({ integration }) => {
             alignItems: "center",
             padding: 2,
             width: "100%",
-            gap:'30px'
+            gap:'30px',
+            position:'relative',
+          top:'-10px',
+          height:'53px',
             
           }}
         >
@@ -63,9 +67,11 @@ const IntegrationCard = ({ integration }) => {
          <Box sx={{
           display:'flex',
           alignItems:'center',
-          gap:'0px'
+          gap:'0px',
+          
+          
          }}>
-          <IconButton>
+          <IconButton >
             <ImportExportIcon />
           </IconButton>
           <Typography variant="body2" color="text.secondary">
@@ -154,7 +160,7 @@ const Integrations = () => {
 
   return (
     < >
-    <Box sx={{marginBlockStart:'30px'}}>    
+    <Box sx={{marginBlockStart:'30px', height:'150vh'}}>    
         <AppHeader />
       <Typography
         variant="h4"
@@ -183,6 +189,7 @@ const Integrations = () => {
           border: "1px solid #c3c7cc63",
           top: "120px",
           right: "60px",
+          height:'43px'
         }}
       >
         <IconButton>
@@ -196,6 +203,7 @@ const Integrations = () => {
           border: "1px solid #c3c7cc63",
           top: "120px",
           right: "40px",
+          height:'43px'
         }}
       >
         <IconButton>

@@ -38,8 +38,8 @@ import DesktopMacIcon from "@mui/icons-material/DesktopMac";
 import TabletMacIcon from "@mui/icons-material/TabletMac";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
@@ -58,7 +58,7 @@ const Dashboard = () => {
       color: "#556ee6",
       icon: <AttachMoneyIcon />,
       percentage: 12,
-      percentageString:'%',
+      percentageString: "%",
       trend: <ArrowUpwardIcon />,
       description: "Since last month",
     },
@@ -68,7 +68,7 @@ const Dashboard = () => {
       color: "#34c38f",
       icon: <GroupIcon />,
       percentage: 16,
-      percentageString:'%',
+      percentageString: "%",
       trend: <ArrowDownwardIcon />,
       description: "Since last month",
     },
@@ -148,6 +148,11 @@ const Dashboard = () => {
       date: "Updated Mar 8, 2024",
       img: "images/product-5.png",
     },
+    {
+      name: "Necessaire Body Lotion",
+      date: "Updated Mar 8, 2024",
+      img: "images/product-5.png",
+    }
   ];
 
   const orders = [
@@ -197,14 +202,15 @@ const Dashboard = () => {
 
   return (
     <>
-      <AppHeader onSearchToggle={handleSearch} />
+      <AppHeader />
 
       <Box
         sx={{
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
-          minHeight: "110vh",
+          minHeight: "180vh",
           marginTop: "130px",
+          marginBlockEnd:'130px'
         }}
       >
         <Grid container spacing={3}>
@@ -246,7 +252,7 @@ const Dashboard = () => {
                         fontWeight: 600,
                         fontSize: "10px",
                         wordSpacing: 2,
-                        letterSpacing: 2,
+                        letterSpacing: 1,
                       }}
                     >
                       {item.label.toUpperCase()}
@@ -305,7 +311,8 @@ const Dashboard = () => {
                             marginLeft: "8px",
                           }}
                         >
-                          {item.percentage}{item.percentageString }
+                          {item.percentage}
+                          {item.percentageString}
                         </span>
                         <span
                           style={{
@@ -337,7 +344,7 @@ const Dashboard = () => {
             </Grid>
           ))}
 
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={7}>
             <Card sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
               <CardContent>
                 <Typography variant="h6">Sales</Typography>
@@ -348,25 +355,25 @@ const Dashboard = () => {
                   height={350}
                 />
               </CardContent>
-              <Divider sx={{}} ></Divider>
+              <Divider sx={{}}></Divider>
               <Button
-                  endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    backgroundColor: "transparent",
-                    color: "black",
-                    left: "680px",
-                    mt: "5px",
-                    fontSize: "13px",
-                    textTransform: "none",
-                  }}
-                >
-                  {" "}
-                  Overview{" "}
-                </Button>
+                endIcon={<ArrowForwardIcon />}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: "black",
+                  left: "600px",
+                  mt: "5px",
+                  fontSize: "13px",
+                  textTransform: "none",
+                }}
+              >
+                {" "}
+                Overview{" "}
+              </Button>
             </Card>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={5}>
             <Card sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
               <CardContent>
                 <Typography variant="h6">Traffic Source</Typography>
@@ -374,7 +381,8 @@ const Dashboard = () => {
                   options={trafficChartData.options}
                   series={trafficChartData.series}
                   type="donut"
-                  height={500}
+                  height="100%"
+                  width="100%"
                 />
                 <div
                   style={{
@@ -409,11 +417,11 @@ const Dashboard = () => {
                         sx={{
                           backgroundColor: "#c3c7cc63",
                           marginBlockStart: "10px",
-                        marginLeft: "-16px",     
-    marginRight: "-16px",
+                          marginLeft: "-16px",
+                          marginRight: "-16px",
                         }}
                       />
-                      <ListItem key={index}>
+                      <ListItem key={index} sx={{height:'60px'}}>
                         <ListItemAvatar>
                           <Avatar src={product.img} />
                         </ListItemAvatar>
@@ -422,8 +430,8 @@ const Dashboard = () => {
                           secondary={product.date}
                         />
                         <IconButton>
-      <FontAwesomeIcon icon={faEllipsisV} />
-    </IconButton>
+                          <FontAwesomeIcon icon={faEllipsisV} />
+                        </IconButton>
                       </ListItem>
                     </>
                   ))}
@@ -431,8 +439,8 @@ const Dashboard = () => {
                     sx={{
                       backgroundColor: "#c3c7cc63",
                       marginBlockStart: "10px",
-                      marginLeft: "-16px",     
-    marginRight: "-16px",
+                      marginLeft: "-16px",
+                      marginRight: "-16px",
                     }}
                   />
                 </List>
@@ -442,9 +450,11 @@ const Dashboard = () => {
                     backgroundColor: "transparent",
                     color: "black",
                     left: "250px",
-                    mt: "10px",
+                    mt: "0px",
+                    top:"10px",
                     fontSize: "13px",
                     textTransform: "none",
+                    mb:0
                   }}
                 >
                   {" "}
@@ -462,31 +472,29 @@ const Dashboard = () => {
                   sx={{
                     backgroundColor: "#c3c7cc63",
                     marginBlockStart: "10px",
-                  marginLeft: "-16px",     
-    marginRight: "-16px",
+                    marginLeft: "-16px",
+                    marginRight: "-16px",
                   }}
                 />
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell sx={{ fontWeight: 500, color: "#gray" }}>
+                      <TableCell sx={{ fontWeight: 500, color: "gray" }}>
                         Order
                       </TableCell>
-                      <TableCell sx={{ fontWeight: 500, color: "#gray" }}>
+                      <TableCell sx={{ fontWeight: 500, color: "gray" }}>
                         Customer
                       </TableCell>
-                      <TableCell sx={{ fontWeight: 500, color: "#gray" }}>
+                      <TableCell sx={{ fontWeight: 500, color: "gray" }}>
                         Date
                       </TableCell>
-                      <TableCell sx={{ fontWeight: 500, color: "#gray" }}>
+                      <TableCell sx={{ fontWeight: 500, color: "gray" }}>
                         Status
                       </TableCell>
                     </TableRow>
                   </TableHead>
-                  
+
                   <TableBody>
-                    
-                    
                     {orders.map((order, index) => (
                       <TableRow key={index}>
                         <TableCell>{order.order}</TableCell>
@@ -517,6 +525,7 @@ const Dashboard = () => {
                   color: "black",
                   left: "660px",
                   mt: "10px",
+                  top:'-10px',
                   fontSize: "13px",
                   textTransform: "none",
                 }}

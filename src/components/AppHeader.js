@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -15,7 +15,7 @@ import {
   Divider,
   Badge,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
@@ -24,25 +24,29 @@ const AppHeader = ({ onSearchToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const [openAvatarModal, setOpenAvatarModal] = useState(false);
-  const [notificationCount, setNotificationCount] = useState(5); 
-  const navigate = useNavigate(); 
+  const [notificationCount, setNotificationCount] = useState(5);
+  const navigate = useNavigate();
 
   const handleSearch = () => {
-    setIsOpen((prevState) => {
-      if (!prevState) {
-        setTimeout(() => inputRef.current?.focus(), 0); // Delay focus to ensure input is rendered
-      }
-      return !prevState;
-    });
-    onSearchToggle(isOpen);
+    setIsOpen((prevState) => !prevState);
+    if (onSearchToggle) {
+      onSearchToggle(!isOpen); 
+    }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => inputRef.current?.focus(), 0);
+      return () => clearTimeout(timer); 
+    }
+  }, [isOpen]);
 
   const handleOpenAvatarModal = () => setOpenAvatarModal(true);
   const handleCloseAvatarModal = () => setOpenAvatarModal(false);
 
   const handleNavigation = (path) => {
-    setOpenAvatarModal(false); 
-    navigate(path); 
+    setOpenAvatarModal(false);
+    navigate(path);
   };
 
   return (
@@ -50,12 +54,17 @@ const AppHeader = ({ onSearchToggle }) => {
       position="absolute"
       color="transparent"
       elevation={0}
-      sx={{ borderBottom: '1px solid #c3c7cc63', width: '81%', backgroundColor: 'white', height: '65px' }}
+      sx={{
+        borderBottom: '1px solid #c3c7cc63',
+        width: '81%',
+        backgroundColor: 'white',
+        height: '65px',
+      }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <IconButton onClick={handleSearch}>
-            <SearchIcon />
+          <IconButton onClick={handleSearch} >
+            <SearchIcon sx={{height:'30px', fontSize:'50px', left:'-20px', position:'relative' , fontWeight:200}} />
           </IconButton>
           {isOpen && (
             <InputBase
@@ -68,6 +77,8 @@ const AppHeader = ({ onSearchToggle }) => {
                 border: '1px solid #ccc',
                 borderRadius: '4px',
                 padding: '2px 8px',
+                position:'relative',
+                left:'-40px'
               }}
             />
           )}
@@ -77,11 +88,7 @@ const AppHeader = ({ onSearchToggle }) => {
             <PeopleAltOutlinedIcon />
           </IconButton>
           <IconButton color="inherit">
-            <Badge
-              badgeContent={notificationCount}
-              color="error" 
-              overlap="circular"
-            >
+            <Badge badgeContent={notificationCount} color="error" overlap="circular">
               <NotificationsNoneOutlinedIcon />
             </Badge>
           </IconButton>

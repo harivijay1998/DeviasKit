@@ -76,7 +76,8 @@ const SideBar = ({ setActiveView }) => {
         backgroundColor: "#1a1a1a", 
         borderRadius: 1,
         color: "white",
-        marginInlineStart:'10px'
+        marginInlineStart:'10px',
+        height:'57px'
       }}
     >
       <InputLabel sx={{ color: "gray" }}>Workspace</InputLabel>
@@ -102,7 +103,7 @@ const SideBar = ({ setActiveView }) => {
       </Select>
     </FormControl>
       </Box>
-      <Divider sx={{ backgroundColor: "gray", marginBottom: 1,marginLeft: "-16px",     
+      <Divider sx={{ backgroundColor: "gray", marginBottom: 0,marginLeft: "-16px",     
     marginRight: "-16px",}} />
       <List>
         {menuItems.map((item, index) => (
@@ -127,10 +128,11 @@ const SideBar = ({ setActiveView }) => {
                     : "rgba(255, 255, 255, 0.1)",
               },
               borderRadius: "8px",
-              marginBottom: '13px' ,
+              marginBottom: '8px' ,
               textAlign:'left',
-              height:'36px',
-              left:'0px'
+              height:'38px',
+              left:'0px',
+              
             }}
           >
             <ListItemIcon
@@ -146,8 +148,11 @@ const SideBar = ({ setActiveView }) => {
               {item.icon}
             </ListItemIcon>
             <ListItemText primary={item.key}
+            primaryTypographyProps={{
+              sx: { fontSize: '15px' }}}
             sx={{
-              flexGrow: 1, // This will make the text take up the remaining space
+              flexGrow: 1,
+              fontSize:'5px' 
             }} />
           </ListItem>
         ))}
@@ -155,8 +160,8 @@ const SideBar = ({ setActiveView }) => {
       <Divider sx={{backgroundColor:'#aaa',marginLeft: "-16px",     
     marginRight: "-16px", }}/>
 
-      <Typography variant="h6" sx={{fontSize:'15px', paddingBlockStart:'15px '}}>Need more features ?</Typography>
-      <Typography variant="p" sx={{fontSize:'12px', color:'#ccc'}}>Check out our Pro solution template</Typography>
+      <Typography variant="h6" sx={{fontSize:'15px', paddingBlockStart:'15px', paddingBlockEnd:'-3px'}}>Need more features ?</Typography>
+      <Typography variant="p" sx={{fontSize:'14px', color:'#ccc'}}>Check out our Pro solution template</Typography>
         <Box 
           component="img"
           alt="pro-img"
@@ -164,8 +169,8 @@ const SideBar = ({ setActiveView }) => {
           sx={{
             height:'136px',
             width:'160px',
-            paddingBlockStart:'20px',
-            paddingInlineStart:'20px'
+            paddingBlockStart:'15px',
+            paddingInlineStart:'40px'
           }}/>
           
     </Box>
