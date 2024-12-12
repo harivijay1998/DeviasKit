@@ -49,16 +49,16 @@ const SignupPage = () => {
           sx={{
             position: "absolute",
             top: "25px",
-            left: "18px",
-            height: "33px",
+            left: "23px",
+            height: "32px",
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "150px", paddingBlock: "100px" }}>
+        <Box sx={{ paddingInline: "158px", paddingBlockStart: "115px", top:'0px', position:'relative' }}>
           <Typography variant="h4" sx={{ mb: 1 }}>
             Sign up
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ color :'gray', fontSize:'15px'}}>
             Already have an account?{" "}
             <Link href="/" sx={{ textDecoration: "none" }}>
               Sign in
@@ -139,6 +139,7 @@ const SignupPage = () => {
                 <FormControlLabel
                   control={<Field as={Checkbox} name="termsAndConditions" />}
                   label="I have read the terms and conditions"
+                  sx={{mt:"-5px"}}
                 />
                 <Button
                   type="submit"
@@ -149,6 +150,8 @@ const SignupPage = () => {
                     height: "40px",
                     width: "450px",
                     borderRadius: "10px",
+                    mt:1.5,
+                    textTransform:'none'
                   }}
                 >
                   Sign up
@@ -171,20 +174,28 @@ const SignupPage = () => {
           height: "700px",
         }}
       >
-        <Typography variant="h5" color="white" sx={{ textAlign: "center" }}>
+        <Typography variant="h5" color="white" sx={{ textAlign: "center", fontSize:'25px', fontWeight:'500', marginBlockStart:'-5px' }}>
           Welcome to{" "}
           <Typography variant="span" color="green">
             Devias Kit
           </Typography>
         </Typography>
-        <Typography variant="body2" color="white" sx={{ textAlign: "center" }}>
-          A professional template with ready-to-use MUI components.
+        <Typography
+          variant="body2"
+          color="white"
+          sx={{
+            textAlign: "center",
+            fontSize: "17px",
+            paddingBlockStart: "5px",
+          }}
+        >
+          A professional template that comes with ready-to-use MUI components.
         </Typography>
         <Box
           component="img"
           alt="kitimg"
           src="images/auth-widgets.png"
-          sx={{ width: "600px", height: "515px", objectFit: "contain" }}
+          sx={{ width: "600px", height: "515px", objectFit: "contain", paddingBlockStart:'25px', position:'relative', left:'-12px' }}
         />
       </Grid>
     </Grid>

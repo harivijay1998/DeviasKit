@@ -31,16 +31,27 @@ const ForgotPassword = () => {
   return (
     <Grid container>
       <Grid item xs={6} sx={{ position: "relative" }}>
+      <Box
+          component="img"
+          alt="logo"
+          src="images/logo--dark.svg"
+          sx={{
+            position: "absolute",
+            top: "25px",
+            left: "23px",
+            height: "32px",
+          }}
+        ></Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            paddingInline: "150px", paddingBlock: "250px" 
+            paddingInline: "158px", paddingBlockStart: "320px" 
           }}
         >
-          <Typography variant="h5" sx={{ marginBottom: 2 , fontWeight:500, left:'10px'}}>
-            Reset Password
+          <Typography variant="h5" sx={{ marginBottom: 2 , fontWeight:500, left:'-140px', position:'relative', top:'-13px' }}>
+            Reset password
           </Typography>
           <Formik
             initialValues={{
@@ -59,9 +70,9 @@ const ForgotPassword = () => {
                   type="email"
                   error={Boolean(errors.email && touched.email)}
                   helperText={errors.email && touched.email && errors.email}
-                  sx={{ marginBottom: 2 }}
+                  sx={{ marginBottom: 2, width:'450px' }}
                 />
-                <Button type="submit" variant="contained" fullWidth>
+                <Button type="submit" variant="contained" fullWidth sx={{width:'450px', textTransform:'none', borderRadius:'10px', p:1}}>
                   Send recovery link
                 </Button>
                 {error && <Alert severity="error">{error}</Alert>}
@@ -81,20 +92,28 @@ const ForgotPassword = () => {
           height: "700px",
         }}
       >
-        <Typography variant="h5" color="white" sx={{ textAlign: "center" }}>
+        <Typography variant="h5" color="white" sx={{ textAlign: "center", fontSize:'25px', fontWeight:'500', marginBlockStart:'-3px' }}>
           Welcome to{" "}
           <Typography variant="span" color="green">
             Devias Kit
           </Typography>
         </Typography>
-        <Typography variant="p" color="white" sx={{ textAlign: "center" }}>
-          A professional template with ready-to-use MUI components.
+        <Typography
+          variant="body2"
+          color="white"
+          sx={{
+            textAlign: "center",
+            fontSize: "17px",
+            paddingBlockStart: "5px",
+          }}
+        >
+          A professional template that comes with ready-to-use MUI components.
         </Typography>
         <Box
           component="img"
           alt="kitimg"
           src="images/auth-widgets.png"
-          sx={{ width: "600px", height: "515px", objectFit: "contain" }}
+          sx={{ width: "600px", height: "515px", objectFit: "contain", paddingBlockStart:'25px', position:'relative', left:'-12px' }}
         />
       </Grid>
     </Grid>

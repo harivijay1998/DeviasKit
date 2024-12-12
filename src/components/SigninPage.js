@@ -7,10 +7,12 @@ import {
   Button,
   Typography,
   Alert,
-  Grid,
+  IconButton,
+  InputAdornment,
   Link,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -27,7 +29,8 @@ const SignInSchema = Yup.object().shape({
 const SigninPage = () => {
   const [formData, setFormData] = useState(null);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); 
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedData = localStorage.getItem("signupData");
@@ -40,7 +43,7 @@ const SigninPage = () => {
     if (formData) {
       if (formData.email === values.email && formData.password === values.password) {
         setError(null);
-        navigate("/home"); 
+        navigate("/home");
       } else {
         setError("Invalid email or password");
       }
@@ -50,9 +53,17 @@ const SigninPage = () => {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={6} sx={{ position: "relative", width: "802px",
-          height: "715px", }}>
+    <Box sx={{ display: "flex" }}>
+      <Box
+        item
+        xs={12}
+        sm={6}
+        sx={{
+          position: "relative",
+          width: "802px",
+          height: "700px",
+        }}
+      >
         <Box
           component="img"
           alt="logo"
@@ -60,17 +71,21 @@ const SigninPage = () => {
           sx={{
             position: "absolute",
             top: "25px",
-            left: "18px",
-            height: "33px",
+            left: "23px",
+            height: "32px",
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "150px", paddingBlock: "180px" }}>
-          <Typography variant="h4" color="black" sx={{ mb: 1, fontWeight: "400" }}>
+        <Box sx={{ paddingInline: "159px", paddingBlock: "180px" , position:'relative', top:'10px'}}>
+          <Typography
+            variant="h4"
+            color="black"
+            sx={{ mb: 1, fontWeight: "500", fontSize:'33px' }}
+          >
             Sign in
           </Typography>
-          <Typography variant="body1" color="gray">
-            Don't Have an Account?{" "}
+          <Typography variant="body1" color="gray"sx={{mb:2, fontSize:'15px'}}>
+            Don't have an account?{" "}
             <Link href="/signup" sx={{ textDecoration: "none" }}>
               SignUp
             </Link>
@@ -88,13 +103,13 @@ const SigninPage = () => {
                 <Field
                   as={TextField}
                   fullWidth
-                  label="Email"
+                  label="Email address"
                   name="email"
                   type="email"
                   error={Boolean(errors.email && touched.email)}
                   helperText={errors.email && touched.email && errors.email}
                   sx={{
-                    marginBottom: "30px",
+                    marginBottom: "25px",
                     height: "50px",
                     width: "450px",
                     mt: 2,
@@ -105,17 +120,29 @@ const SigninPage = () => {
                   fullWidth
                   label="Password"
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"} 
                   error={Boolean(errors.password && touched.password)}
                   helperText={errors.password && touched.password && errors.password}
                   sx={{
-                    marginBottom: "30px",
+                    marginBottom: "25px",
                     height: "50px",
                     width: "450px",
                   }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={() => setShowPassword((prev) => !prev)}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
-                <Link href="/forgotpassword" sx={{ textDecoration: "none" }}>
-                  Forgot Password?
+                <Link href="/forgotpassword" sx={{ textDecoration: "none", position:'relative', top:'-5px', fontWeight:'600', fontSize:'15px' }}>
+                  Forgot password?
                 </Link>
                 <Button
                   type="submit"
@@ -126,6 +153,7 @@ const SigninPage = () => {
                     height: "40px",
                     width: "450px",
                     mt: 2,
+                    textTransform:'none'
                   }}
                 >
                   Sign in
@@ -135,34 +163,50 @@ const SigninPage = () => {
             )}
           </Formik>
         </Box>
-      </Grid>
+      </Box>
 
-      <Grid item xs={12} sm={6} 
+      <Box
         sx={{
           backgroundColor: "#090e23",
-          paddingInline: "100px",
-          paddingBlock: "50px",
-          width: "802px",
-          height: "715px",
+          width: "70%",
+          marginInlineStart: "0px",
         }}
       >
-        <Typography variant="h5" color="white" sx={{ textAlign: "center" , paddingBlockStart:'50px' }}>
+        <Typography
+          variant="h5"
+          color="white"
+          sx={{ textAlign: "center", paddingBlockStart: "50px", fontWeight: "700" }}
+        >
           Welcome to{" "}
           <Typography variant="span" color="green">
             Devias Kit
           </Typography>
         </Typography>
-        <Typography variant="body2" color="white" sx={{ textAlign: "center" }}>
-          A professional template with ready-to-use MUI components.
+        <Typography
+          variant="body2"
+          color="white"
+          sx={{
+            textAlign: "center",
+            fontSize: "17px",
+            paddingBlockStart: "5px",
+          }}
+        >
+          A professional template that comes with ready-to-use MUI components.
         </Typography>
         <Box
           component="img"
           alt="kitimg"
           src="images/auth-widgets.png"
-          sx={{ width: "600px", height: "515px", objectFit: "contain" , paddingInlineStart:'30px' , paddingBlockStart:'30px' }}
+          sx={{
+            width: "600px",
+            height: "515px",
+            objectFit: "contain",
+            paddingInlineStart: "90px",
+            paddingBlockStart: "30px",
+          }}
         />
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 };
 
