@@ -210,7 +210,8 @@ const Dashboard = () => {
           backgroundColor: "#f5f5f5",
           minHeight: "180vh",
           marginTop: "127px",
-          marginBlockEnd:'130px'
+          marginBlockEnd:'130px',
+          marginLeft:'0px'
         }}
       >
         <Grid container spacing={2}>
@@ -450,7 +451,7 @@ const Dashboard = () => {
                   sx={{
                     backgroundColor: "transparent",
                     color: "black",
-                    left: "250px",
+                    left: "280px",
                     mt: "0px",
                     top:"10px",
                     fontSize: "13px",
@@ -524,7 +525,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left: "660px",
+                  left: "700px",
                   mt: "10px",
                   top:'-10px',
                   fontSize: "13px",
