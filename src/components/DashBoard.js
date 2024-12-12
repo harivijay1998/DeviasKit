@@ -209,7 +209,7 @@ const Dashboard = () => {
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
           minHeight: "180vh",
-          marginTop: "120px",
+          marginTop: "127px",
           marginBlockEnd:'130px'
         }}
       >
@@ -253,13 +253,14 @@ const Dashboard = () => {
                         fontSize: "10px",
                         wordSpacing: 2,
                         letterSpacing: 1,
+                        
                       }}
                     >
                       {item.label.toUpperCase()}
                     </Typography>
                     <Typography
                       variant="h4"
-                      sx={{ fontWeight: "400", marginBlockStart: "10px" }}
+                      sx={{ fontWeight: "500", marginBlockStart: "10px" }}
                     >
                       {item.value}
                     </Typography>
@@ -295,7 +296,7 @@ const Dashboard = () => {
                           justifyContent: "space-evenly",
                           display: "flex",
                           alignItems: "center",
-                          marginBlockStart: "10px",
+                          marginBlockStart: "20px",
                         }}
                       >
                         <span
@@ -327,8 +328,8 @@ const Dashboard = () => {
                   </Box>
                   <Box
                     sx={{
-                      width: 50,
-                      height: 50,
+                      width: 60,
+                      height: 60,
                       backgroundColor: item.color,
                       color: "white",
                       borderRadius: "50%",

@@ -151,10 +151,11 @@ const SideBar = ({ setActiveView }) => {
               borderRadius: "8px",
               marginBottom: '15px' ,
               textAlign:'left',
-              height:'38px',
+              height:'40px',
               left:'0px',
               width:'253px',
-              marginTop:'-5px'
+              marginTop:'-5px',
+              
             }}
           >
             <ListItemIcon

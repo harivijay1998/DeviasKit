@@ -109,10 +109,10 @@ const Customers = () => {
     <AppHeader/>
       <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'120px', left:'-5px'}}>Customers</Typography>
       <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1130px' , top:'80px' , paddingInline:'20px', borderRadius:'10px', paddingBlock:'8px'}}>+ Add</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', top:'127px', right:'55px', height:'43px', textTransform:'none'}}><IconButton>
+      <Button sx={{backgroundColor:'white' , color:'black', top:'127px', right:'60px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Import</Button>
-      <Button sx={{backgroundColor:'white' , color:'black' , top:'127px', right:'40px', height:'43px', textTransform:'none'}}><IconButton>
+      <Button sx={{backgroundColor:'white' , color:'black' , top:'127px', right:'50px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Export</Button>
     <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'140px' , left:'10px', width:'1180px'}}>
