@@ -103,19 +103,21 @@ const Customers = () => {
       {
         height:'130vh',
         marginLeft:'-10px',
-        marginBlockStart:'8px'
+        marginBlockStart:'0px'
       }
-    }>
-    <AppHeader/>
-      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'120px', left:'-5px'}}>Customers</Typography>
-      <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:'1130px' , top:'80px' , paddingInline:'20px', borderRadius:'10px', paddingBlock:'8px'}}>+ Add</Button>
-      <Button sx={{backgroundColor:'white' , color:'black', top:'127px', right:'60px', height:'43px', textTransform:'none'}}><IconButton>
+     }>
+      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'80px', left:'0px'}}>Customers</Typography>
+      <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:{
+            md:1150,
+            sm:"88vw"
+          } , top:'50px' , paddingInline:'20px', borderRadius:'10px', paddingBlock:'8px'}}>+ Add</Button>
+      <Button sx={{backgroundColor:'white' , color:'black', top:'90px', right:'60px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Import</Button>
-      <Button sx={{backgroundColor:'white' , color:'black' , top:'127px', right:'50px', height:'43px', textTransform:'none'}}><IconButton>
+      <Button sx={{backgroundColor:'white' , color:'black' , top:'90px', right:'50px', height:'43px', textTransform:'none'}}><IconButton>
             <ImportExportIcon />
           </IconButton>Export</Button>
-    <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'140px' , left:'10px', width:'1180px'}}>
+     <Box sx={{ padding: 2  , position:'relative', marginBlockStart:'110px' , left:'10px', width:'1180px'}}>
       <Box sx={{ border: "1px solid #c3c7cc63", borderRadius:'20px'}}>    
           <TextField
         
@@ -131,7 +133,7 @@ const Customers = () => {
         }}
       /></Box>
 
-      <TableContainer component={Paper} sx={{borderRadius:'20px', top:'20px', position:'relative'}}>
+      <TableContainer component={Paper} sx={{borderRadius:'20px', top:'20px', position:'relative' ,width:{sm:"95vw", md:"80vw"}}}>
         <Table>
           <TableHead>
             <TableRow>

@@ -32,14 +32,13 @@ const Account = () => {
 
   return (
     <>
-      <AppHeader />
       <Typography
         variant="h4"
         color="black"
         sx={{
           position: "relative",
           paddingInlineStart: "20px",
-          top: "130px",
+          top: "60px",
           width: "100px",
           fontWeight: 500,
         }}
@@ -49,16 +48,29 @@ const Account = () => {
       <Box
         sx={{
           width: "1230px",
-          marginTop: "150px",
+          marginTop: "80px",
           display: "flex",
           justifyContent: "space-evenly",
           gap: "15px",
-          paddingInlineStart:'5px'
+          paddingInlineStart:2,
+          "@media (max-width:900px) and (min-width:768px)":{
+            flexDirection:'column',
+            alignItems:'center',
+            padding:0,
+            marginInline:0,
+            position:'relative',
+            left:'-27vw',
+            height:'90vh',
+            gap:'0px'
+          }
         }}
       >
         <Box
           sx={{
-            width: "390px",
+            width:{
+              sm:"90vw",
+              md:450
+            },
             backgroundColor: "white",
             borderRadius: "20px",
             border: '1px solid #c3c7cc63',
@@ -66,6 +78,9 @@ const Account = () => {
             textAlign: "center",
             paddingBlockEnd: 0,
             height: "275px",
+            "@media (max-width:900px) and (min-width:768px)":{
+              height:"300px"
+            }
           }}
         >
           <Avatar
@@ -115,7 +130,10 @@ const Account = () => {
 
         <Box
           sx={{
-            width: "750px",
+            width:{
+              sm:"90vw",
+              md:900
+            },
             backgroundColor: "white",
             borderRadius: "20px",
             border: '1px solid #c3c7cc63',
@@ -144,7 +162,14 @@ const Account = () => {
               display: "flex",
               flexWrap: "wrap",
               gap: "20px",
-              paddingBlockStart:'20px'
+              paddingBlockStart:'20px',
+              width:{
+                sm:700
+                },
+              "@media (max-width:900px) and (min-width:768px)":{
+              flexDirection:'column',
+              paddingInlineStart:'0px',
+              }
             }}
           >
             <TextField

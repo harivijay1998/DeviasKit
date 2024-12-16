@@ -202,16 +202,18 @@ const Dashboard = () => {
 
   return (
     <>
-      <AppHeader />
 
       <Box
         sx={{
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
           minHeight: "180vh",
-          marginTop: "127px",
+          marginTop: "70px",
           marginBlockEnd:'130px',
-          marginLeft:'0px'
+          marginLeft:'0px',
+          "@media (max-width:900px) and (min-width:768px)":{
+            paddingInline:1
+          }
         }}
       >
         <Grid container spacing={2}>
@@ -231,7 +233,10 @@ const Dashboard = () => {
                   border: "1px solid #c3c7cc63",
                   borderRadius: "20px",
                   height: "160px",
-                  width: "280px",
+                  width:{
+                    md:"280px",
+                    sm:"45vw"
+                  },
                   boxShadow: "none",
                   paddingInline: 0,
                 }}
@@ -254,7 +259,9 @@ const Dashboard = () => {
                         fontSize: "10px",
                         wordSpacing: 2,
                         letterSpacing: 1,
-                        
+                        "@media (max-width:900px) and (min-width:768px)":{
+                          fontSize:'15px'
+                        }
                       }}
                     >
                       {item.label.toUpperCase()}
@@ -318,8 +325,11 @@ const Dashboard = () => {
                         </span>
                         <span
                           style={{
-                            fontSize: "12px",
+                            fontSize: "15px",
                             marginInlineStart: "15px",
+                            "@media (max-width:900px) and (min-width:768px)":{
+                              fontSize:'15px'
+                            }
                           }}
                         >
                           {item.description}
@@ -347,7 +357,7 @@ const Dashboard = () => {
           ))}
 
           <Grid item xs={12} md={7}>
-            <Card sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
+            <Card sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px", paddingBlockEnd:'5px' }}>
               <CardContent>
                 <Typography variant="h6">Sales</Typography>
                 <Chart
@@ -355,6 +365,7 @@ const Dashboard = () => {
                   series={salesChartData.series}
                   type="bar"
                   height={350}
+                  sx={{width:{sm:"75vw", md:"627px"}}}
                 />
               </CardContent>
               <Divider sx={{}}></Divider>
@@ -363,7 +374,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left: "600px",
+                  left:{md:"600px" , sm:"85vw"},
                   mt: "5px",
                   fontSize: "13px",
                   textTransform: "none",
@@ -431,7 +442,7 @@ const Dashboard = () => {
                           primary={product.name}
                           secondary={product.date}
                         />
-                        <IconButton>
+                        <IconButton sx={{height:"50px", width:'40px'}}>
                           <FontAwesomeIcon icon={faEllipsisV} />
                         </IconButton>
                       </ListItem>
@@ -451,7 +462,7 @@ const Dashboard = () => {
                   sx={{
                     backgroundColor: "transparent",
                     color: "black",
-                    left: "280px",
+                    left:{md:"280px", sm:"82vw"},
                     mt: "0px",
                     top:"10px",
                     fontSize: "13px",
@@ -525,7 +536,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left: "700px",
+                  left:{md:"700px", sm:"85vw"},
                   mt: "10px",
                   top:'-10px',
                   fontSize: "13px",

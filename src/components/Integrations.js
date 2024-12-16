@@ -15,10 +15,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
 const IntegrationCard = ({ integration }) => {
   return (
-    <Grid item xs={7} sm={4}>
+    <Grid item md={4} sm={12}>
       <Card
         sx={{
-          maxWidth: 380,
+          
           height: "100%",
           textAlign: "center",
           display: "flex",
@@ -28,7 +28,11 @@ const IntegrationCard = ({ integration }) => {
           border: "1px solid #c3c7cc63",
           borderRadius: "20px",
           height:'270px',
-          marginBlockStart:'10px'
+          marginBlockStart:'10px',
+          width:{
+            sm:"96vw",
+            md:370
+          }
         }}
       >
         <CardMedia
@@ -59,9 +63,12 @@ const IntegrationCard = ({ integration }) => {
             position:'relative',
           top:'-10px',
           height:'53px',
+          "@media(max-width:900px)and (min-width:768px)":{
+            gap:'60vw'
+          }
             
           }}
-        >
+         >
           <Typography variant="body2" color="text.secondary">
             Updated: {integration.updatedAt}
           </Typography>
@@ -162,7 +169,7 @@ const Integrations = () => {
   return (
     < >
     <Box sx={{marginBlockStart:'30px', height:'150vh', marginInlineStart:'-5px'}}>    
-        <AppHeader />
+       
       <Typography
         variant="h4"
         color="black"
@@ -175,7 +182,10 @@ const Integrations = () => {
           backgroundColor: "#635bff",
           color: "white",
           position: "relative",
-          left: "1100px",
+          left:{
+            md:1100,
+            sm:"88vw"
+          },
           top: "70px",
           paddingInline: "20px",
           borderRadius: "10px",

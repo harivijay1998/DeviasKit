@@ -64,22 +64,25 @@ const Settings = () => {
 
   return (
     <>
-      <AppHeader />
       <Typography
         variant="h4"
-        sx={{ position: "relative", top: "125px", left: "-10px" , paddingInlineStart:'30px' , fontWeight:500}}
+        sx={{ position: "relative", top: "100px", left: "-10px" , paddingInlineStart:'30px' , fontWeight:500}}
       >
         Settings
       </Typography>
-      <Box sx={{ padding: 1, marginBlockStart: "120px", marginInlineStart:'10px' }}>
+      <Box sx={{ padding: 1, marginBlockStart: "100px", marginInlineStart:'10px' }}>
         <Box
           sx={{
             mt: 2,
             border: "1px solid #c3c7cc63",
             paddingBlock: "30px",
             borderRadius: "20px",
+            width:{
+              sm:755,
+              md:1205
+            }
           }}
-        >
+         >
           <Box
             sx={{
               borderBottom: "1px solid #c3c7cc63",
@@ -145,7 +148,7 @@ const Settings = () => {
             </Box>
           </Box>
           <Divider sx={{backgroundColor:'#c3c7cc63', marginBlockStart:'10px'}}></Divider>
-            <Button color="primary" variant="contained" sx={{position:'relative', top:'15px', left:'1060px', borderRadius:'10px',textTransform:'none'}}>Save changes</Button>
+            <Button color="primary" variant="contained" sx={{position:'relative', top:'15px', left:{md:1060, sm:600}, borderRadius:'10px',textTransform:'none'}}>Save changes</Button>
         </Box>
 
         <Box
@@ -154,8 +157,12 @@ const Settings = () => {
             border: "1px solid #c3c7cc63",
             borderRadius: "20px",
             paddingBlockEnd: "10px",
+            width:{
+              sm:755,
+              md:1205
+            }
           }}
-        >
+         >
           <Box
             sx={{
               borderBottom: "1px solid #c3c7cc63",
@@ -194,7 +201,7 @@ const Settings = () => {
           <Button
           variant="contained"
           color="primary"
-          sx={{ mt: 2, textTransform:'none', top:'0px', left:'1100px', borderRadius:'10px' }}
+          sx={{ mt: 2, textTransform:'none', top:'0px', left:{md:1105, sm:650}, borderRadius:'10px',  }}
           onClick={handleSaveChanges}
         >
           Update

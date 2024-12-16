@@ -76,7 +76,11 @@ const SigninPage = () => {
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "159px", paddingBlock: "180px" , position:'relative', top:'10px'}}>
+        <Box sx={{ paddingInline: "159px", paddingBlock: "180px" , position:'relative', top:'10px',
+          "@media (max-width:900px) and (min-width: 768px)":{
+            paddingBlockStart:'400px', paddingInline:'180px'
+          }
+        }}>
           <Typography
             variant="h4"
             color="black"
@@ -109,7 +113,7 @@ const SigninPage = () => {
                   error={Boolean(errors.email && touched.email)}
                   helperText={errors.email && touched.email && errors.email}
                   sx={{
-                    marginBottom: "25px",
+                    marginBottom: "35px",
                     height: "50px",
                     width: "450px",
                     mt: 2,
@@ -124,7 +128,7 @@ const SigninPage = () => {
                   error={Boolean(errors.password && touched.password)}
                   helperText={errors.password && touched.password && errors.password}
                   sx={{
-                    marginBottom: "25px",
+                    marginBottom: "55px",
                     height: "50px",
                     width: "450px",
                   }}
@@ -170,6 +174,9 @@ const SigninPage = () => {
           backgroundColor: "#090e23",
           width: "70%",
           marginInlineStart: "0px",
+          "@media (max-width:900px) and (min-width:768px)":{
+              display:'none'
+          }
         }}
       >
         <Typography

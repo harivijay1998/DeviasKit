@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  AppBar,
   Toolbar,
   Box,
   IconButton,
@@ -19,132 +18,154 @@ import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
+import SettingsOutlinedIcon from "@mui/icons-material/Settings";
+import PeopleOutlinedIcon from "@mui/icons-material/People";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-const AppHeader = ({ onSearchToggle }) => {
-  const [isOpen, setIsOpen] = useState(false);
+
+const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const inputRef = useRef(null);
-  const [openAvatarModal, setOpenAvatarModal] = useState(false);
+  const [isAvatarModalOpen, setIsAvatarModalOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(5);
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    setIsOpen((prevState) => !prevState);
+  const handleSearchToggle = () => {
+    setIsSearchOpen((prev) => !prev);
     if (onSearchToggle) {
-      onSearchToggle(!isOpen); 
+      onSearchToggle(!isSearchOpen);
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isSearchOpen) {
       const timer = setTimeout(() => inputRef.current?.focus(), 0);
-      return () => clearTimeout(timer); 
+      return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isSearchOpen]);
 
-  const handleOpenAvatarModal = () => setOpenAvatarModal(true);
-  const handleCloseAvatarModal = () => setOpenAvatarModal(false);
+  const openAvatarModal = () => setIsAvatarModalOpen(true);
+  const closeAvatarModal = () => setIsAvatarModalOpen(false);
 
   const handleNavigation = (path) => {
-    setOpenAvatarModal(false);
+    setIsAvatarModalOpen(false);
     navigate(path);
   };
 
   return (
-    <AppBar
-      position="absolute"
-      color="transparent"
-      elevation={0}
+    <Box
       sx={{
         borderBottom: '1px solid #c3c7cc63',
-        width: '81%',
         backgroundColor: 'white',
-        height: '65px',
+        height: '10vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        px: 2,
+        width: '95%',
+        margin:'auto'
       }}
-    >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <IconButton onClick={handleSearch} >
-            <SearchIcon sx={{height:'30px', fontSize:'50px', left:'-25px', position:'relative' , fontWeight:200, top:'0px'}} />
-          </IconButton>
-          {isOpen && (
-            <InputBase
-              ref={inputRef}
-              placeholder="Search..."
-              inputProps={{ 'aria-label': 'search' }}
-              sx={{
-                ml: 1,
-                width: '200px',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                padding: '2px 8px',
-                position:'relative',
-                left:'-40px'
-              }}
-            />
-          )}
-        </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <IconButton color="inherit">
-            <PeopleAltOutlinedIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <Badge badgeContent={notificationCount} color="error" overlap="circular">
-              <NotificationsNoneOutlinedIcon />
-            </Badge>
-          </IconButton>
-          <Avatar
-            src="https://randomuser.me/api/portraits/women/68.jpg"
-            alt="User Avatar"
-            sx={{ width: 36, height: 36, cursor: 'pointer' }}
-            onClick={handleOpenAvatarModal}
+     >
+      <IconButton color="inherit" aria-label="menu" onClick={toggleSidebar} >
+        <MenuIcon />
+      </IconButton>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 , left:{md:"230px", sm:'3vw'}, position:"relative"
+      }}>
+        <IconButton onClick={handleSearchToggle} >
+          <SearchIcon sx={{ fontSize:'30px'}} />
+        </IconButton>
+        {isSearchOpen && (
+          <InputBase
+            ref={inputRef}
+            placeholder="Search..."
+            inputProps={{ 'aria-label': 'search' }}
+            sx={{
+              ml: 1,
+              width: '200px',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              padding: '2px 8px',
+            }}
           />
-        </Box>
-      </Toolbar>
+        )}
+      </Box>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <IconButton color="inherit">
+          <PeopleAltOutlinedIcon />
+        </IconButton>
+        <IconButton color="inherit">
+          <Badge badgeContent={notificationCount} color="error">
+            <NotificationsNoneOutlinedIcon />
+          </Badge>
+        </IconButton>
+        <Avatar
+          src="https://randomuser.me/api/portraits/women/68.jpg"
+          alt="User Avatar"
+          sx={{ width: 36, height: 36, cursor: 'pointer' }}
+          onClick={openAvatarModal}
+        />
+      </Box>
 
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={openAvatarModal}
-        onClose={handleCloseAvatarModal}
+        open={isAvatarModalOpen}
+        onClose={closeAvatarModal}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        <Fade in={openAvatarModal}>
+        <Fade in={isAvatarModalOpen}>
           <Box
             sx={{
-              bgcolor: 'background.paper',
-              border: '1px solid #ccc',
-              p: 4,
               position: 'absolute',
-              top: '29%',
-              right: '-10%',
+              top: '25%',
+              left: '90%',
               transform: 'translate(-50%, -50%)',
-              borderRadius: '20px',
+              bgcolor: 'background.paper',
+              boxShadow: 24,
+              p:0,
+              borderRadius: '10px',
+              width: '250px',
+              cursor:'pointer',
+              "@media (max-width:900px) and ( min-width:768px)":{
+                top:"15%",
+                left:"83%"
+              }
             }}
           >
             <List>
+              <Box >
+              <ListItem sx={{mb:-3}}>
+               <ListItemText primary="Sofia Rivers" />
+              </ListItem>
               <ListItem>
-                <ListItemText primary="Sofia Rivers" />
+                <ListItemText  sx={{color:'#aaa', fontSize:'4px'}}>SofiaRivers@example.com</ListItemText>
               </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="SofiaRivers@example.com" />
+              </Box>
+              <Divider sx={{ backgroundColor: "#c3c7cc63",
+                      marginBlockStart: "10px",
+                      marginLeft: "-0px",
+                      marginRight: "-0px",}} />
+                <Box >
+              <ListItem button onClick={() => handleNavigation('/settings')} sx={{mb:-2, textAlign:'left'}}>
+              <IconButton><SettingsOutlinedIcon></SettingsOutlinedIcon></IconButton> <ListItemText primary="Settings" />
               </ListItem>
-              <Divider />
-              <ListItem button onClick={() => handleNavigation('/settings')}>
-                <ListItemText primary="Settings" />
+              <ListItem sx={{mb:-2, textAlign:'left'}}>    <IconButton><PeopleAltOutlinedIcon></PeopleAltOutlinedIcon></IconButton>           <ListItemText>Profile</ListItemText>
               </ListItem>
-              <ListItem button onClick={() => handleNavigation('/')}>
-                <ListItemText primary="Logout" />
+              <ListItem button onClick={() => handleNavigation('/')} sx={{textAlign:'left'}}>
+                <IconButton><LogoutOutlinedIcon></LogoutOutlinedIcon></IconButton>
+                <ListItemText primary="Logout"  />
               </ListItem>
+              </Box>
             </List>
           </Box>
         </Fade>
       </Modal>
-    </AppBar>
+    </Box>
   );
 };
 

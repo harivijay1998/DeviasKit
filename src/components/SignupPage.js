@@ -41,7 +41,7 @@ const SignupPage = () => {
 
   return (
     <Grid container>
-      <Grid item xs={6} sx={{ position: "relative" }}>
+      <Grid item xs={12} sx={{ position: "relative" }}>
         <Box
           component="img"
           alt="logo"
@@ -54,7 +54,7 @@ const SignupPage = () => {
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "158px", paddingBlockStart: "115px", top:'0px', position:'relative' }}>
+        <Box sx={{ paddingInline: "175px", paddingBlockStart: "370px", top:'0px', position:'relative' }}>
           <Typography variant="h4" sx={{ mb: 1 }}>
             Sign up
           </Typography>
@@ -75,83 +75,101 @@ const SignupPage = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, values }) => (
               <Form>
-                <Field
-                  as={TextField}
-                  fullWidth
-                  label="First name"
-                  name="firstName"
-                  error={Boolean(errors.firstName) && touched.firstName}
-                  helperText={errors.firstName && touched.firstName}
-                  sx={{
-                    marginBottom: "25px",
-                    marginTop: "25px",
-                    height: "50px",
-                    width: "450px",
-                    borderRadius: "20px",
-                  }}
-                />
-                <Field
-                  as={TextField}
-                  fullWidth
-                  label="Last name"
-                  name="lastName"
-                  error={Boolean(errors.lastName) && touched.lastName}
-                  helperText={errors.lastName && touched.lastName}
-                  sx={{
-                    marginBottom: "25px",
-                    height: "50px",
-                    width: "450px",
-                    borderRadius: "20px",
-                  }}
-                />
-                <Field
-                  as={TextField}
-                  fullWidth
-                  label="Email address"
-                  name="email"
-                  type="email"
-                  error={Boolean(errors.email) && touched.email}
-                  helperText={errors.email && touched.email}
-                  sx={{
-                    marginBottom: "25px",
-                    height: "50px",
-                    width: "450px",
-                    borderRadius: "20px",
-                  }}
-                />
-                <Field
-                  as={TextField}
-                  fullWidth
-                  label="Password"
-                  name="password"
-                  type="password"
-                  error={Boolean(errors.password) && touched.password}
-                  helperText={errors.password && touched.password}
-                  sx={{
-                    marginBottom: "25px",
-                    height: "50px",
-                    width: "450px",
-                    borderRadius: "20px",
-                  }}
-                />
+                <Field name="firstName">
+                  {({ field, meta }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      label="First name"
+                      error={Boolean(meta.error && meta.touched)}
+                      helperText={meta.error && meta.touched ? meta.error : ""}
+                      sx={{
+                        marginBottom: "35px",
+                        marginTop: "25px",
+                        height: "50px",
+                        width: "450px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  )}
+                </Field>
+                <Field name="lastName">
+                  {({ field, meta }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      label="Last name"
+                      error={Boolean(meta.error && meta.touched)}
+                      helperText={meta.error && meta.touched ? meta.error : ""}
+                      sx={{
+                        marginBottom: "35px",
+                        height: "50px",
+                        width: "450px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, meta }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      label="Email address"
+                      type="email"
+                      error={Boolean(meta.error && meta.touched)}
+                      helperText={meta.error && meta.touched ? meta.error : ""}
+                      sx={{
+                        marginBottom: "35px",
+                        height: "50px",
+                        width: "450px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  )}
+                </Field>
+                <Field name="password">
+                  {({ field, meta }) => (
+                    <TextField
+                      {...field}
+                      fullWidth
+                      label="Password"
+                      type="password"
+                      error={Boolean(meta.error && meta.touched)}
+                      helperText={meta.error && meta.touched ? meta.error : ""}
+                      sx={{
+                        marginBottom: "35px",
+                        height: "50px",
+                        width: "450px",
+                        borderRadius: "20px",
+                      }}
+                    />
+                  )}
+                </Field>
                 <FormControlLabel
                   control={<Field as={Checkbox} name="termsAndConditions" />}
                   label="I have read the terms and conditions"
-                  sx={{mt:"-5px"}}
+                  sx={{ mt: "-5px" }}
                 />
+                {errors.termsAndConditions && touched.termsAndConditions && (
+                  <Typography color="error" variant="body2">
+                    {errors.termsAndConditions}
+                  </Typography>
+                )}
                 <Button
                   type="submit"
                   variant="contained"
                   fullWidth
+                  disabled={!values.termsAndConditions} 
                   sx={{
                     marginBottom: "15px",
                     height: "40px",
                     width: "450px",
                     borderRadius: "10px",
-                    mt:1.5,
-                    textTransform:'none'
+                    mt: 1.5,
+                    textTransform: 'none',
                   }}
                 >
                   Sign up
@@ -172,9 +190,12 @@ const SignupPage = () => {
           paddingBlock: "50px",
           width: "802px",
           height: "700px",
+          "@media (max-width:900px) and (min-width:768px)": {
+            display: 'none',
+          },
         }}
       >
-        <Typography variant="h5" color="white" sx={{ textAlign: "center", fontSize:'25px', fontWeight:'500', marginBlockStart:'-5px' }}>
+        <Typography variant="h5" color="white" sx={{ textAlign: "center", fontSize: '25px', fontWeight: '500', marginBlockStart: '-5px' }}>
           Welcome to{" "}
           <Typography variant="span" color="green">
             Devias Kit
@@ -195,7 +216,7 @@ const SignupPage = () => {
           component="img"
           alt="kitimg"
           src="images/auth-widgets.png"
-          sx={{ width: "600px", height: "515px", objectFit: "contain", paddingBlockStart:'25px', position:'relative', left:'-12px' }}
+          sx={{ width: "600px", height: "515px", objectFit: "contain", paddingBlockStart: '25px', position: 'relative', left: '-12px' }}
         />
       </Grid>
     </Grid>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   List,
@@ -11,6 +11,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Drawer
 } from "@mui/material";
 import DashboardOutlinedIcon from "@mui/icons-material/Dashboard";
 import PeopleOutlinedIcon from "@mui/icons-material/People";
@@ -23,7 +24,7 @@ import Integrations from "./Integrations";
 import Settings from "./Settings";
 import Account from "./Account";
 
-const SideBar = ({ setActiveView }) => {
+const SideBar = ({ isSidebarVisible, setSidebarVisible,setActiveView }) => {
   const [activeItem, setActiveItem] = useState("Dashboard");
   const [workspace, setWorkspace] = useState("Devias");
 
@@ -45,7 +46,44 @@ const SideBar = ({ setActiveView }) => {
 
   ];
 
+
+  const checkWidth =() =>{
+    if(window.innerWidth > 900){
+      setSidebarVisible(true)
+    }
+    else{
+      setSidebarVisible(false)
+    }
+  }
+
+  useEffect(()=>{
+    checkWidth();
+    window.addEventListener("resize", checkWidth)
+
+    return()=>{
+      window.removeEventListener("resize", checkWidth)
+    }
+  },[])
+
   return (
+    <Drawer
+      open={isSidebarVisible}
+      onClose={() => setSidebarVisible(false)}
+      variant={isSidebarVisible ? "persistent" : "temporary"}
+      anchor="left"
+      PaperProps={{
+        sx: {
+          width: "250px",
+          backgroundColor: "#121621",
+          color: "white",
+          zIndex: 1300, 
+          "@media (max-width:900px) and (min-width:768px)":{
+            marginTop:'60px'
+          }
+        },
+      }}
+    >
+    
     <Box
       sx={{
         width: "250px",
@@ -114,6 +152,7 @@ const SideBar = ({ setActiveView }) => {
       fontSize: "16px", 
       fontWeight: "bold", 
       paddingLeft: "10px", 
+      cursor:'pointer'
     }}
     disableUnderline 
     variant="standard" 
@@ -155,7 +194,7 @@ const SideBar = ({ setActiveView }) => {
               left:'0px',
               width:'253px',
               marginTop:'-5px',
-              
+              cursor:'pointer'
             }}
           >
             <ListItemIcon
@@ -175,11 +214,13 @@ const SideBar = ({ setActiveView }) => {
               sx: { fontSize: '15px' }}}
             sx={{
               flexGrow: 1,
-              fontSize:'5px' 
+              fontSize:'5px' ,
+              cursor:'pointer'
             }} />
           </ListItem>
         ))}
       </List>
+      <Box sx={{paddingBlockStart:{sm:'35vh', md:'0'}}}>
       <Divider sx={{backgroundColor:'#2a3040',marginLeft: "-16px",     
     marginRight: "-16px", marginBlockStart:'-10px' }}/>
 
@@ -195,8 +236,9 @@ const SideBar = ({ setActiveView }) => {
             paddingBlockStart:'15px',
             paddingInlineStart:'43px'
           }}/>
-          
+          </Box>
     </Box>
+    </Drawer>
   );
 };
 
