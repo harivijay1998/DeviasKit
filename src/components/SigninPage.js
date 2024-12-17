@@ -76,7 +76,7 @@ const SigninPage = () => {
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "159px", paddingBlock: "180px" , position:'relative', top:'10px',
+        <Box sx={{ paddingInline: "159px", paddingBlockStart: "180px" , position:'relative', top:'10px',
           "@media (max-width:900px) and (min-width: 768px)":{
             paddingBlockStart:'400px', paddingInline:'180px'
           }

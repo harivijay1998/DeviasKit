@@ -41,7 +41,7 @@ const SignupPage = () => {
 
   return (
     <Grid container>
-      <Grid item xs={12} sx={{ position: "relative" }}>
+      <Grid item xs={6} sx={{ position: "relative" }}>
         <Box
           component="img"
           alt="logo"
@@ -51,10 +51,13 @@ const SignupPage = () => {
             top: "25px",
             left: "23px",
             height: "32px",
+            
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "175px", paddingBlockStart: "370px", top:'0px', position:'relative' }}>
+        <Box sx={{ paddingInline: "175px", paddingBlockStart: "150px", top:'0px', position:'relative',"@media (max-width:900px) and (min-width:768px)":{
+             paddingInline:"100px" , top:'170px', left:"50px"
+            } }}>
           <Typography variant="h4" sx={{ mb: 1 }}>
             Sign up
           </Typography>

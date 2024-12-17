@@ -30,7 +30,7 @@ const ForgotPassword = () => {
   };
   return (
     <Grid container>
-      <Grid item xs={12} sx={{ position: "relative" }}>
+      <Grid item xs={6} sx={{ position: "relative" }}>
       <Box
           component="img"
           alt="logo"
@@ -47,7 +47,13 @@ const ForgotPassword = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            paddingInline: "170px", paddingBlockStart: "560px" 
+            paddingInline: "170px", paddingBlockStart: "360px", 
+            "@media (max-width:900px) and (min-width:768px)":{
+              position:'relative',
+              left:'190px',
+              paddingInline:"100px",
+              top:'190px'
+            }
           }}
         >
           <Typography variant="h5" sx={{ marginBottom: 2 , fontWeight:500, left:'-140px', position:'relative', top:'-13px' }}>
