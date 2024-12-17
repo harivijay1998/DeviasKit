@@ -78,7 +78,7 @@ const SideBar = ({ isSidebarVisible, setSidebarVisible,setActiveView }) => {
           color: "white",
           zIndex: 1300, 
           "@media (max-width:900px) and (min-width:768px)":{
-            marginTop:'60px'
+            marginTop:'90px'
           }
         },
       }}
@@ -220,7 +220,7 @@ const SideBar = ({ isSidebarVisible, setSidebarVisible,setActiveView }) => {
           </ListItem>
         ))}
       </List>
-      <Box sx={{paddingBlockStart:{sm:'35vh', md:'0'}}}>
+      <Box sx={{paddingBlockStart:{sm:'25vh', md:'0'}}}>
       <Divider sx={{backgroundColor:'#2a3040',marginLeft: "-16px",     
     marginRight: "-16px", marginBlockStart:'-10px' }}/>
 

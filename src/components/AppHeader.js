@@ -54,24 +54,26 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
   };
 
   return (
+    
     <Box
-      sx={{
-        borderBottom: '1px solid #c3c7cc63',
-        backgroundColor: 'white',
-        height: '10vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        px: 2,
-        width: '95%',
-        margin:'auto'
-      }}
-     >
+  sx={{
+    height: '10vh',
+    minHeight: '10vh',
+    maxHeight: '10vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottom: '1px solid #c3c7cc63',
+    backgroundColor: 'white',
+    width: '100%',
+  }}
+>
+
       <IconButton color="inherit" aria-label="menu" onClick={toggleSidebar} >
         <MenuIcon />
       </IconButton>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 , left:{md:"230px", sm:'3vw'}, position:"relative"
+      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 , left:{md:"250px", sm:'3vw'}, position:"relative"
       }}>
         <IconButton onClick={handleSearchToggle} >
           <SearchIcon sx={{ fontSize:'30px'}} />
@@ -92,7 +94,8 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
         )}
       </Box>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 , mr:2
+      }}>
         <IconButton color="inherit">
           <PeopleAltOutlinedIcon />
         </IconButton>
