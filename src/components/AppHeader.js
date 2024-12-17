@@ -135,7 +135,7 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
               width: '250px',
               cursor:'pointer',
               "@media (max-width:900px) and ( min-width:768px)":{
-                top:"15%",
+                top:"18%",
                 left:"83%"
               }
             }}
