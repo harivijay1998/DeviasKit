@@ -66,11 +66,11 @@ const Settings = () => {
     <>
       <Typography
         variant="h4"
-        sx={{ position: "relative", top: "100px", left: "-10px" , paddingInlineStart:'30px' , fontWeight:500}}
+        sx={{ position: "relative", top: "60px", left: "-10px" , paddingInlineStart:'30px' , fontWeight:500}}
       >
         Settings
       </Typography>
-      <Box sx={{ padding: 1, marginBlockStart: "100px", marginInlineStart:'10px' }}>
+      <Box sx={{ padding: 1, marginBlockStart: "60px", marginInlineStart:'10px' }}>
         <Box
           sx={{
             mt: 2,

@@ -168,12 +168,12 @@ const Integrations = () => {
 
   return (
     < >
-    <Box sx={{marginBlockStart:'30px', height:'150vh', marginInlineStart:'-5px'}}>    
+    <Box sx={{marginBlockStart:'20px', height:'150vh', marginInlineStart:'-5px'}}>    
        
       <Typography
         variant="h4"
         color="black"
-        sx={{ position: "relative", paddingInlineStart: "20px", top: "95px" }}
+        sx={{ position: "relative", paddingInlineStart: "20px", top: "35px" }}
       >
         Integrations
       </Typography>
@@ -183,21 +183,22 @@ const Integrations = () => {
           color: "white",
           position: "relative",
           left:{
-            md:1100,
+            md:1130,
             sm:"88vw"
           },
-          top: "70px",
+          top: "0px",
           paddingInline: "20px",
           borderRadius: "10px",
         }}
       >
-        ADD+
+        
+        + ADD
       </Button>
       <Button
         sx={{
           backgroundColor: "white",
           color: "black",
-          top: "100px",
+          top: "40px",
           right: "70px",
           height:'43px',
           textTransform:'none'
@@ -211,7 +212,7 @@ const Integrations = () => {
         sx={{
           backgroundColor: "white",
           color: "black",
-          top: "100px",
+          top: "40px",
           right: "70px",
           height:'43px',
           textTransform:'none'
@@ -222,7 +223,7 @@ const Integrations = () => {
           </IconButton>Export
       </Button>
 
-      <Box sx={{ padding: 2, marginBlockStart: "110px" }}>
+      <Box sx={{ padding: 2, marginBlockStart: "40px" }}>
         <Box sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px" }}>
           <TextField
             placeholder="Search Integrations"

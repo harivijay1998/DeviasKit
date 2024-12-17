@@ -208,7 +208,7 @@ const Dashboard = () => {
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
           minHeight: "180vh",
-          marginTop: "70px",
+          marginTop: "50px",
           marginBlockEnd:'130px',
           marginLeft:'0px',
           "@media (max-width:900px) and (min-width:768px)":{

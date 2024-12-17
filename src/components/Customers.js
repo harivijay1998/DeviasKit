@@ -106,7 +106,7 @@ const Customers = () => {
         marginBlockStart:'0px'
       }
      }>
-      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'80px', left:'0px'}}>Customers</Typography>
+      <Typography variant='h4' color='black' sx={{position:'relative', paddingInlineStart:'30px' , top:'60px', left:'0px'}}>Customers</Typography>
       <Button sx={{backgroundColor:'#635bff', color:'white' , position:'relative' , left:{
             md:1150,
             sm:"88vw"
