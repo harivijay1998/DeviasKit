@@ -5,14 +5,15 @@ import {
   IconButton,
   InputBase,
   Avatar,
-  Modal,
-  Backdrop,
-  Fade,
   List,
   ListItem,
   ListItemText,
   Divider,
   Badge,
+  Popper,
+  ClickAwayListener,
+  Grow,
+  Paper,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
@@ -23,12 +24,12 @@ import SettingsOutlinedIcon from "@mui/icons-material/Settings";
 import PeopleOutlinedIcon from "@mui/icons-material/People";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-
 const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const inputRef = useRef(null);
-  const [isAvatarModalOpen, setIsAvatarModalOpen] = useState(false);
+  const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(5);
+  const avatarRef = useRef(null); 
   const navigate = useNavigate();
 
   const handleSearchToggle = () => {
@@ -45,38 +46,40 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
     }
   }, [isSearchOpen]);
 
-  const openAvatarModal = () => setIsAvatarModalOpen(true);
-  const closeAvatarModal = () => setIsAvatarModalOpen(false);
+  const handleAvatarMenuToggle = () => {
+    setIsAvatarMenuOpen((prev) => !prev);
+  };
 
   const handleNavigation = (path) => {
-    setIsAvatarModalOpen(false);
+    setIsAvatarMenuOpen(false);
     navigate(path);
   };
 
-  return (
-    
-    <Box
-  sx={{
-    height: '10vh',
-    minHeight: '10vh',
-    maxHeight: '10vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderBottom: '1px solid #c3c7cc63',
-    backgroundColor: 'white',
-    width: '100%',
-  }}
->
+  const handleClickAway = () => {
+    setIsAvatarMenuOpen(false);
+  };
 
-      <IconButton color="inherit" aria-label="menu" onClick={toggleSidebar} >
+  return (
+    <Box
+      sx={{
+        height: '10vh',
+        minHeight: '10vh',
+        maxHeight: '10vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderBottom: '1px solid #c3c7cc63',
+        backgroundColor: 'white',
+        width: '100%',
+      }}
+    >
+      <IconButton color="inherit" aria-label="menu" onClick={toggleSidebar}>
         <MenuIcon />
       </IconButton>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 , left:{md:"250px", sm:'3vw'}, position:"relative"
-      }}>
-        <IconButton onClick={handleSearchToggle} >
-          <SearchIcon sx={{ fontSize:'30px'}} />
+      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, left: { md: "250px", sm: '3vw' }, position: "relative" }}>
+        <IconButton onClick={handleSearchToggle}>
+          <SearchIcon sx={{ fontSize: '30px' }} />
         </IconButton>
         {isSearchOpen && (
           <InputBase
@@ -94,8 +97,7 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
         )}
       </Box>
 
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 , mr:2
-      }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mr: 2 }}>
         <IconButton color="inherit">
           <PeopleAltOutlinedIcon />
         </IconButton>
@@ -105,69 +107,54 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
           </Badge>
         </IconButton>
         <Avatar
+          ref={avatarRef} // Reference to the Avatar component
           src="https://randomuser.me/api/portraits/women/68.jpg"
           alt="User Avatar"
           sx={{ width: 36, height: 36, cursor: 'pointer' }}
-          onClick={openAvatarModal}
+          onClick={handleAvatarMenuToggle}
         />
       </Box>
 
-      <Modal
-        open={isAvatarModalOpen}
-        onClose={closeAvatarModal}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={isAvatarModalOpen}>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '25%',
-              left: '90%',
-              transform: 'translate(-50%, -50%)',
-              bgcolor: 'background.paper',
-              boxShadow: 24,
-              p:0,
-              borderRadius: '10px',
-              width: '250px',
-              cursor:'pointer',
-              "@media (max-width:900px) and ( min-width:768px)":{
-                top:"18%",
-                left:"83%"
-              }
-            }}
-          >
-            <List>
-              <Box >
-              <ListItem sx={{mb:-3}}>
-               <ListItemText primary="Sofia Rivers" />
-              </ListItem>
-              <ListItem>
-                <ListItemText  sx={{color:'#aaa', fontSize:'4px'}}>SofiaRivers@example.com</ListItemText>
-              </ListItem>
-              </Box>
-              <Divider sx={{ backgroundColor: "#c3c7cc63",
-                      marginBlockStart: "10px",
-                      marginLeft: "-0px",
-                      marginRight: "-0px",}} />
-                <Box >
-              <ListItem button onClick={() => handleNavigation('/settings')} sx={{mb:-2, textAlign:'left'}}>
-              <IconButton><SettingsOutlinedIcon></SettingsOutlinedIcon></IconButton> <ListItemText primary="Settings" />
-              </ListItem>
-              <ListItem sx={{mb:-2, textAlign:'left'}}>    <IconButton><PeopleAltOutlinedIcon></PeopleAltOutlinedIcon></IconButton>           <ListItemText>Profile</ListItemText>
-              </ListItem>
-              <ListItem button onClick={() => handleNavigation('/')} sx={{textAlign:'left'}}>
-                <IconButton><LogoutOutlinedIcon></LogoutOutlinedIcon></IconButton>
-                <ListItemText primary="Logout"  />
-              </ListItem>
-              </Box>
-            </List>
-          </Box>
-        </Fade>
-      </Modal>
+      <Popper open={isAvatarMenuOpen} anchorEl={avatarRef.current} transition disablePortal>
+        {({ TransitionProps }) => (
+          <Grow {...TransitionProps} timeout={350}>
+            <Paper sx={{ width: 250, boxShadow: 3, borderRadius: '10px' }}>
+              <ClickAwayListener onClickAway={handleClickAway}>
+                <List>
+                  <Box>
+                    <ListItem sx={{ mb: -3 }}>
+                      <ListItemText primary="Sofia Rivers" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText sx={{ color: '#aaa', fontSize: '4px' }}>SofiaRivers@example.com</ListItemText>
+                    </ListItem>
+                  </Box>
+                  <Divider sx={{
+                    backgroundColor: "#c3c7cc63",
+                    marginBlockStart: "10px",
+                    marginLeft: "-0px",
+                    marginRight: "-0px",
+                  }} />
+                  <Box>
+                    <ListItem button onClick={() => handleNavigation('/settings')} sx={{ mb: -2, textAlign: 'left' }}>
+                      <IconButton><SettingsOutlinedIcon /></IconButton>
+                      <ListItemText primary="Settings" />
+                    </ListItem>
+                    <ListItem sx={{ mb: -2, textAlign: 'left' }}>
+                      <IconButton><PeopleAltOutlinedIcon /></IconButton>
+                      <ListItemText>Profile</ListItemText>
+                    </ListItem>
+                    <ListItem button onClick={() => handleNavigation('/')} sx={{ textAlign: 'left' }}>
+                      <IconButton><LogoutOutlinedIcon /></IconButton>
+                      <ListItemText primary="Logout" />
+                    </ListItem>
+                  </Box>
+                </List>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </Box>
   );
 };

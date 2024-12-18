@@ -62,8 +62,10 @@ const SigninPage = () => {
           position: "relative",
           width: "802px",
           height: "700px",
+          margin:'auto',
+          maxWidth:'1530px'
         }}
-      >
+       >
         <Box
           component="img"
           alt="logo"
@@ -174,6 +176,7 @@ const SigninPage = () => {
           backgroundColor: "#090e23",
           width: "70%",
           marginInlineStart: "0px",
+          
           "@media (max-width:900px) and (min-width:768px)":{
               display:'none'
           }

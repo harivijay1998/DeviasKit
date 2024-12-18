@@ -5,10 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render(<div style={{maxWidth:'1530px' , margin:'0 auto'}}>
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  
+  
+</div>
 );
 
 // If you want to start measuring performance in your app, pass a function

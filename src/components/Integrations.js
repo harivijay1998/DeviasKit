@@ -26,6 +26,7 @@ const IntegrationCard = ({ integration }) => {
           alignItems: "center",
           justifyContent: "center",
           border: "1px solid #c3c7cc63",
+          boxShadow:'none',
           borderRadius: "20px",
           height:'270px',
           marginBlockStart:'10px',

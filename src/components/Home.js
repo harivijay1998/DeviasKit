@@ -18,7 +18,9 @@ const Home = () => {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        overflow: "hidden", // Prevent scrolling
+        overflow: "hidden",
+        maxWidth: "1530px",
+        margin: "0 auto",
       }}
     >
       <AppHeader toggleSidebar={toggleSidebar} />
@@ -26,7 +28,7 @@ const Home = () => {
         sx={{
           display: "flex",
           flexGrow: 1,
-          overflow: "hidden", // Prevent overflow on child elements
+          overflow: "hidden",
         }}
       >
         <SideBar
@@ -42,7 +44,7 @@ const Home = () => {
             transition: "margin-left 0.3s ease",
             backgroundColor: "#f5f5f5",
             height: "100%",
-            overflowX: "hidden", // Prevent x-axis scrolling for this section
+            overflowX: "hidden",
           }}
         >
           {activeView}

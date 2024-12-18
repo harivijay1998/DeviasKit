@@ -217,145 +217,96 @@ const Dashboard = () => {
         }}
       >
         <Grid container spacing={2}>
-          {statCards.map((item, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              key={index}
-              sx={{ paddingInline: 0 }}
+        {statCards.map((item, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Card
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid #c3c7cc63",
+                borderRadius: "20px",
+                height: "180px",
+                boxShadow: "none",
+                paddingInline:'10px'
+              }}
             >
-              <Card
-                sx={{
-                  textAlign: "left",
-                  paddingBlockStart: 3,
-                  border: "1px solid #c3c7cc63",
-                  borderRadius: "20px",
-                  height: "160px",
-                  width:{
-                    md:"280px",
-                    sm:"45vw"
-                  },
-                  boxShadow: "none",
-                  paddingInline: 0,
-                }}
-              >
-                <CardContent
+              <CardContent sx={{ display: "flex", justifyContent: "space-between" , alignItems:'center'}}>
+                <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" , gap:'10px', paddingBlockStart:'20px' }}>
+                  <Typography variant="subtitle2" sx={{ color: "text.secondary", fontWeight: 500 }}>
+                    {item.label.toUpperCase()}
+                  </Typography>
+                  <Typography variant="h4" sx={{ fontWeight: 500 }}>
+                    {item.value}
+                  </Typography>
+                </Box>
+
+                <Box
                   sx={{
+                    width: 60,
+                    height: 60,
+                    backgroundColor: item.color,
+                    color: "white",
+                    borderRadius: "50%",
                     display: "flex",
-                    justifyContent: "space-evenly",
-                    alignItems: "start",
-                    paddingInline: "0px",
-                    paddingBlock: "10px",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  <Box sx={{ paddingInline: 0 }}>
+                  {item.icon}
+                </Box>
+              </CardContent>
+
+              {(item.percentage || item.progressValue) && (
+                <Box sx={{ display: "flex", alignItems: "center", marginTop: 1 }}>
+                  {item.percentage && (
                     <Typography
-                      variant="subtitle2"
+                      variant="body2"
                       sx={{
-                        color: "text.secondary",
-                        fontWeight: 600,
-                        fontSize: "10px",
-                        wordSpacing: 2,
-                        letterSpacing: 1,
-                        "@media (max-width:900px) and (min-width:768px)":{
-                          fontSize:'15px'
-                        }
+                        display: "flex",
+                        alignItems: "center",
+                        paddingInlineStart:'10px',
+                        color: item.percentage < 15 ? "green" : "red",
                       }}
                     >
-                      {item.label.toUpperCase()}
+                      {item.trend}
+                      {item.percentage}{item.percentageString}
                     </Typography>
-                    <Typography
-                      variant="h4"
-                      sx={{ fontWeight: "500", marginBlockStart: "10px" }}
-                    >
-                      {item.value}
+                  )}
+                  {item.description && (
+                    <Typography variant="body2" sx={{ fontSize: "14px", color: "text.secondary" , marginInlineStart:"10px"
+                     }}>
+                      {item.description}
                     </Typography>
-                    {item.label === "Task Progress" ? (
-                      <>
-                        <Typography
-                          variant="body2"
-                          sx={{ mt: 1, color: "text.secondary" }}
-                        >
-                          Progress: {item.progressValue}%
-                        </Typography>
-                        <LinearProgress
-                          variant="determinate"
-                          value={item.progressValue}
-                          sx={{
-                            height: 4,
-                            width: "100%",
-                            maxWidth: "500px",
-                            mt: 1,
-                            backgroundColor: "#e0e0e0",
-                            "& .MuiLinearProgress-bar": {
-                              backgroundColor: item.color,
-                              maxWidth: "100%",
-                            },
-                          }}
-                        />
-                      </>
-                    ) : (
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          color: "text.secondary",
-                          justifyContent: "space-evenly",
-                          display: "flex",
-                          alignItems: "center",
-                          marginBlockStart: "20px",
-                        }}
-                      >
-                        <span
-                          style={{
-                            color: item.percentage < 15 ? "green" : "red",
-                          }}
-                        >
-                          {item.trend}
-                        </span>
-                        <span
-                          style={{
-                            color: item.percentage < 15 ? "green" : "red",
-                            marginLeft: "8px",
-                          }}
-                        >
-                          {item.percentage}
-                          {item.percentageString}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: "15px",
-                            marginInlineStart: "15px",
-                            "@media (max-width:900px) and (min-width:768px)":{
-                              fontSize:'15px'
-                            }
-                          }}
-                        >
-                          {item.description}
-                        </span>
+                  )}
+                  <Box sx={{paddingInline:'20px'}}>
+                  {item.progressValue && (
+                    <>
+                      <Typography variant="body2" sx={{ marginBlockStart:'-10px', color: "text.secondary" }}>
+                        Progress: {item.progressValue}%
                       </Typography>
-                    )}
-                  </Box>
-                  <Box
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      backgroundColor: item.color,
-                      color: "white",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {item.icon}
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-
+                      <LinearProgress
+                        variant="determinate"
+                        value={item.progressValue}
+                        sx={{
+                          height: 4,
+                          width: "200%",
+                          maxWidth: "500px",
+                          mt: 1,
+                          backgroundColor: "#e0e0e0",
+                          "& .MuiLinearProgress-bar": {
+                            backgroundColor: item.color,
+                          },
+                        }}
+                      />
+                    </>
+                   
+                  )}
+                   </Box>
+                </Box>
+              )}
+            </Card>
+          </Grid>
+        ))}
           <Grid item xs={12} md={7}>
             <Card sx={{ border: "1px solid #c3c7cc63", borderRadius: "20px", paddingBlockEnd:'5px' }}>
               <CardContent>
@@ -394,7 +345,7 @@ const Dashboard = () => {
                   options={trafficChartData.options}
                   series={trafficChartData.series}
                   type="donut"
-                  height="100%"
+                  height="105%"
                   width="100%"
                 />
                 <div
@@ -484,7 +435,7 @@ const Dashboard = () => {
                 <Divider
                   sx={{
                     backgroundColor: "#c3c7cc63",
-                    marginBlockStart: "10px",
+                    marginBlockStart: "17px",
                     marginLeft: "-16px",
                     marginRight: "-16px",
                   }}
