@@ -30,7 +30,7 @@ const ForgotPassword = () => {
   };
   return (
     <Grid container>
-      <Grid item xs={6} sx={{ position: "relative" }}>
+      <Grid item xs={12} sm={12} md={6} sx={{ position: "relative", height:"100vh" }}>
       <Box
           component="img"
           alt="logo"
@@ -47,16 +47,17 @@ const ForgotPassword = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            paddingInline: "170px", paddingBlockStart: "360px", 
+            paddingInline: {md:'170px' , sm:'100px' , xs:'8vw'}, paddingBlockStart: {md:'360px', sm:"360px", xs:'50vh'},
             "@media (max-width:900px) and (min-width:768px)":{
               position:'relative',
               left:'190px',
               paddingInline:"100px",
               top:'190px'
+
             }
           }}
         >
-          <Typography variant="h5" sx={{ marginBottom: 2 , fontWeight:500, left:'-140px', position:'relative', top:'-13px' }}>
+          <Typography variant="h5" sx={{ marginBottom: 2 , fontWeight:500, left:{md:'-140px', sm:'-140px', xs:'-18vw'}, position:'relative', top:'-13px', whiteSpace:'nowrap' }}>
             Reset password
           </Typography>
           <Formik
@@ -76,9 +77,9 @@ const ForgotPassword = () => {
                   type="email"
                   error={Boolean(errors.email && touched.email)}
                   helperText={errors.email && touched.email && errors.email}
-                  sx={{ marginBottom: 2, width:'450px' }}
+                  sx={{ marginBottom: 2, width:{md:'450px',sm:'450px',xs:'90vw'}, }}
                 />
-                <Button type="submit" variant="contained" fullWidth sx={{width:'450px', textTransform:'none', borderRadius:'10px', p:1}}>
+                <Button type="submit" variant="contained" fullWidth sx={{width:{md:'450px',sm:'450px',xs:'90vw'}, textTransform:'none', borderRadius:'10px', p:1}}>
                   Send recovery link
                 </Button>
                 {error && <Alert severity="error">{error}</Alert>}
@@ -97,6 +98,9 @@ const ForgotPassword = () => {
           width: "802px",
           height: "700px",
           "@media (max-width:900px) and (min-width:768px)":{
+            display:'none'
+          },
+          "@media (max-width:520px) and (min-width:320px)" :{
             display:'none'
           }
         }}

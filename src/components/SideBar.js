@@ -86,11 +86,16 @@ const SideBar = ({ isSidebarVisible, setSidebarVisible, setActiveView }) => {
           backgroundColor: "#121621",
           color: "white",
           zIndex: 1300,
+          height:{xs :"100vh", sm:"100%"},
           margin:'auto',
           maxWidth:'1530px',
           "@media (max-width:900px) and (min-width:768px)": {
             marginTop: "90px",
           },
+          "@media (max-width:520px) and (min-width:320px)":{
+            marginBlockStart:"60px",
+            
+          }
         },
       }}
      >

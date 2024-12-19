@@ -34,7 +34,8 @@ const IntegrationCard = ({ integration }) => {
           marginBlockStart:'10px',
           width:{
             sm:"93vw",
-            md:370
+            md:370,
+            xs:'87vw'
           }
         }}
       >
@@ -189,7 +190,8 @@ const Integrations = () => {
           height:'40px',
           left:{
             md:1130,
-            sm:"88vw"
+            sm:"88vw",
+            xs:'75vw'
           },
           top: "0px",
           paddingInline: "10px",
@@ -235,7 +237,7 @@ const Integrations = () => {
             variant="outlined"
             value={search}
             onChange={handleSearchChange}
-            sx={{ marginBlock: 2, marginInlineStart: 2, width: "500px" }}
+            sx={{ marginBlock: 2, marginInlineStart: 2, width: {sm:'500px', md:'500px', xs:"70vw"} }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

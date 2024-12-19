@@ -53,7 +53,7 @@ const Account = () => {
       </Typography>
       <Box
         sx={{
-          width: {md:'1230px', sm:'150vw'},
+          width: {md:'1230px', sm:'150vw', xs:"87vw"},
           marginTop: "80px",
           display: "flex",
           justifyContent: "space-evenly",
@@ -65,8 +65,14 @@ const Account = () => {
             alignItems: "center",
             position:'relative',
             left:'-28vw',
-
           },
+
+          "@media (max-width:520px) and (min-width:320px)": {
+            flexDirection:"column",
+            gap:'20px',
+            height:'20vh'
+
+          }
         }}
        >
         <Box

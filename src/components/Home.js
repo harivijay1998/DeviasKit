@@ -17,7 +17,7 @@ const Home = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        height: "90vh",
         overflow: "hidden",
         maxWidth: "1530px",
         margin: "0 auto",

@@ -80,7 +80,7 @@ const Customers = () => {
     {
       field: "name",
       headerName: "Name",
-      flex: 1,
+      minWidth:300,
       renderCell: (params) => (
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Avatar
@@ -94,10 +94,10 @@ const Customers = () => {
         </Box>
       ),
     },
-    { field: "email", headerName: "Email", flex: 1 },
-    { field: "location", headerName: "Location", flex: 1 },
-    { field: "phone", headerName: "Phone", flex: 1 },
-    { field: "signedUp", headerName: "Signed Up", flex: 1 },
+    { field: "email", headerName: "Email", minWidth:200},
+    { field: "location", headerName: "Location",minWidth:200},
+    { field: "phone", headerName: "Phone" ,minWidth:200},
+    { field: "signedUp", headerName: "Signed Up",minWidth:200},
   ];
 
   return (
@@ -107,7 +107,7 @@ const Customers = () => {
           height: "100vh",
           paddingBlockStart: "60px",
           paddingInline:'20px',
-          width:{sm:'92vw',md:'100%'}
+          width:{sm:'92vw',md:'100%', xs:'90vw'}
 
         }}
        >
@@ -144,7 +144,7 @@ const Customers = () => {
             value={search}
             onChange={handleSearchChange}
             placeholder="Search Customer"
-            sx={{ width: "40%" }}
+            sx={{ width:{ xs:"70vw" ,md:"40%", sm:'40%'} }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -161,18 +161,25 @@ const Customers = () => {
               sx={{
                 backgroundColor: "#635bff",
                 color: "white",
-                marginRight: 3,
+                marginRight: 2,
                 height:'40px',
                 position:'relative',
                 top:'-100px',
-                borderRadius:'10px'
+                borderRadius:'10px',
+                "@media (max-width:500px) and (min-width:320px)"
+                :{marginRight:0}
               }}
             >Add
             </Button>
             
         
         </Box>
-        <Box sx={{ height: 500, backgroundColor: "white", borderRadius:"20px" }}>
+        <Box sx={{ height: 500, backgroundColor: "white", borderRadius:"20px", overflow: "auto",
+          "@media (max-width:600px)": {
+            height: 500, 
+            overflowX: "scroll", 
+            overflowY: "scroll",
+           }}}>
           <DataGrid
             rows={filteredCustomers}
             columns={columns}

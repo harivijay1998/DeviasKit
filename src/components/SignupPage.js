@@ -41,7 +41,7 @@ const SignupPage = () => {
 
   return (
     <Grid container>
-      <Grid item xs={6} sx={{ position: "relative" }}>
+      <Grid item xs={12} md={6} sm={12} sx={{ position: "relative" }}>
         <Box
           component="img"
           alt="logo"
@@ -55,9 +55,11 @@ const SignupPage = () => {
           }}
         ></Box>
 
-        <Box sx={{ paddingInline: "175px", paddingBlockStart: "150px", top:'0px', position:'relative',"@media (max-width:900px) and (min-width:768px)":{
-             paddingInline:"100px" , top:'170px', left:"50px"
-            } }}>
+        <Box sx={{ paddingInline:{xs:'4vw', sm:'105px', md:'175px'}, paddingBlockStart: "150px", top:'0px', position:'relative',"@media (max-width:900px) and (min-width:768px)":{
+             top:'170px', left:"50px"
+            } ,
+            "@media (max-width:520px) and (min-width:'320px)":{ paddingInline:0}
+            }}>
           <Typography variant="h4" sx={{ mb: 1 }}>
             Sign up
           </Typography>
@@ -92,7 +94,7 @@ const SignupPage = () => {
                         marginBottom: "35px",
                         marginTop: "25px",
                         height: "50px",
-                        width: "450px",
+                        width:{md:'450px',sm:'450px',xs:'90vw'},
                         borderRadius: "20px",
                       }}
                     />
@@ -109,7 +111,7 @@ const SignupPage = () => {
                       sx={{
                         marginBottom: "35px",
                         height: "50px",
-                        width: "450px",
+                        width:{md:'450px',sm:'450px',xs:'90vw'},
                         borderRadius: "20px",
                       }}
                     />
@@ -127,7 +129,7 @@ const SignupPage = () => {
                       sx={{
                         marginBottom: "35px",
                         height: "50px",
-                        width: "450px",
+                        width:{md:'450px',sm:'450px',xs:'90vw'},
                         borderRadius: "20px",
                       }}
                     />
@@ -145,7 +147,7 @@ const SignupPage = () => {
                       sx={{
                         marginBottom: "35px",
                         height: "50px",
-                        width: "450px",
+                        width:{md:'450px',sm:'450px',xs:'90vw'},
                         borderRadius: "20px",
                       }}
                     />
@@ -169,7 +171,7 @@ const SignupPage = () => {
                   sx={{
                     marginBottom: "15px",
                     height: "40px",
-                    width: "450px",
+                    width:{md:'450px',sm:'450px',xs:'90vw'},
                     borderRadius: "10px",
                     mt: 1.5,
                     textTransform: 'none',
@@ -196,6 +198,8 @@ const SignupPage = () => {
           "@media (max-width:900px) and (min-width:768px)": {
             display: 'none',
           },
+          "@media (max-width:520px) and (min-width:320px)":{
+            display:"none"          }
         }}
       >
         <Typography variant="h5" color="white" sx={{ textAlign: "center", fontSize: '25px', fontWeight: '500', marginBlockStart: '-5px' }}>

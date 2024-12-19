@@ -61,7 +61,7 @@ const SigninPage = () => {
         sx={{
           position: "relative",
           width: "802px",
-          height: "680px",
+          height: "100vh",
           margin:'auto',
           maxWidth:'1530px'
         }}
@@ -81,6 +81,9 @@ const SigninPage = () => {
         <Box sx={{ paddingInline: "159px", paddingBlockStart: "180px" , position:'relative', top:'10px',
           "@media (max-width:900px) and (min-width: 768px)":{
             paddingBlockStart:'400px', paddingInline:'180px'
+          },
+          "@media (max-width:500px) and (min-width:320px)":{
+              paddingInline:"8vw"
           }
         }}>
           <Typography
@@ -117,7 +120,7 @@ const SigninPage = () => {
                   sx={{
                     marginBottom: "35px",
                     height: "50px",
-                    width: "450px",
+                    width:{md:'450px',sm:'450px',xs:'80vw'},
                     mt: 2,
                   }}
                 />
@@ -132,7 +135,7 @@ const SigninPage = () => {
                   sx={{
                     marginBottom: "55px",
                     height: "50px",
-                    width: "450px",
+                    width:{md:'450px',sm:'450px',xs:'80vw'},
                   }}
                   InputProps={{
                     endAdornment: (
@@ -157,7 +160,7 @@ const SigninPage = () => {
                   sx={{
                     borderRadius: "10px",
                     height: "40px",
-                    width: "450px",
+                    width:{md:'450px',sm:'450px',xs:'80vw'},
                     mt: 2,
                     textTransform:'none'
                   }}
@@ -178,6 +181,10 @@ const SigninPage = () => {
           marginInlineStart: "0px",
           
           "@media (max-width:900px) and (min-width:768px)":{
+              display:'none'
+          },
+
+          "@media (max-width:500px) and (min-width:320px)":{
               display:'none'
           }
         }}

@@ -110,7 +110,7 @@ const Settings = () => {
               Manage the notifications
             </Typography>
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: "40px", paddingBlock: "20px" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "40px", paddingBlock: "20px", "@media(max-width:500px) and (min-width:320px)":{flexDirection:'column',justifyContent:'center', alignItems:'flex-start'} }}>
             <Box sx={{ mt: 0, paddingInlineStart: "25px", paddingBlockStart: "-20px" }}>
               <Typography variant="h6">Email</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -137,7 +137,7 @@ const Settings = () => {
               </Box>
             </Box>
 
-            <Box sx={{ mt: 1, paddingInlineStart: "190px" }}>
+            <Box sx={{ mt: 1, paddingInlineStart: "190px", "@media(max-width:500px) and (min-width:320px)":{paddingInlineStart:"7vw"}  }}>
               <Typography variant="h6">Phone</Typography>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <FormControlLabel
@@ -170,7 +170,7 @@ const Settings = () => {
             sx={{
               position: "relative",
               top: "15px",
-              left: { md: 1060, sm: 600 },
+              left: { md: 1060, sm: 600, xs:'50vw' },
               borderRadius: "10px",
               textTransform: "none",
             }}
@@ -237,7 +237,7 @@ const Settings = () => {
               mt: 2,
               textTransform: "none",
               top: "0px",
-              left: { md: 1105, sm: 650 },
+              left: { md: 1105, sm: 650, xs:'62vw' },
               borderRadius: "10px",
             }}
             onClick={handleSaveChanges }
