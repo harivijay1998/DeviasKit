@@ -90,7 +90,7 @@ const Settings = () => {
             paddingBlock: "30px",
             borderRadius: "20px",
             width: {
-              sm: 755,
+              sm: "92vw",
               md: 1205,
             },
           }}
@@ -186,7 +186,7 @@ const Settings = () => {
             borderRadius: "20px",
             paddingBlockEnd: "10px",
             width: {
-              sm: 755,
+              sm: "92vw",
               md: 1205,
             },
           }}

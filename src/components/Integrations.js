@@ -13,6 +13,8 @@ import { TextField, Divider } from "@mui/material";
 import { InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+
 const IntegrationCard = ({ integration }) => {
   return (
     <Grid item md={4} sm={12}>
@@ -31,7 +33,7 @@ const IntegrationCard = ({ integration }) => {
           height:'270px',
           marginBlockStart:'10px',
           width:{
-            sm:"96vw",
+            sm:"93vw",
             md:370
           }
         }}
@@ -179,21 +181,23 @@ const Integrations = () => {
         Integrations
       </Typography>
       <Button
+       startIcon={<AddIcon/>}
         sx={{
           backgroundColor: "#635bff",
           color: "white",
           position: "relative",
+          height:'40px',
           left:{
             md:1130,
             sm:"88vw"
           },
           top: "0px",
-          paddingInline: "20px",
+          paddingInline: "10px",
           borderRadius: "10px",
         }}
       >
         
-        + ADD
+         ADD
       </Button>
       <Button
         sx={{

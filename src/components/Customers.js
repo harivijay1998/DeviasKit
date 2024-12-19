@@ -107,7 +107,8 @@ const Customers = () => {
           height: "100vh",
           paddingBlockStart: "60px",
           paddingInline:'20px',
-          width:'100%'
+          width:{sm:'92vw',md:'100%'}
+
         }}
        >
         <Typography
@@ -160,7 +161,7 @@ const Customers = () => {
               sx={{
                 backgroundColor: "#635bff",
                 color: "white",
-                marginRight: 2,
+                marginRight: 3,
                 height:'40px',
                 position:'relative',
                 top:'-100px',

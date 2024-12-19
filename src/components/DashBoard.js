@@ -325,7 +325,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left:{md:"600px" , sm:"85vw"},
+                  left:{md:"600px" , sm:"83vw"},
                   mt: "5px",
                   fontSize: "13px",
                   textTransform: "none",

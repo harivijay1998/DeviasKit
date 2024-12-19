@@ -53,7 +53,7 @@ const Account = () => {
       </Typography>
       <Box
         sx={{
-          width: "1230px",
+          width: {md:'1230px', sm:'150vw'},
           marginTop: "80px",
           display: "flex",
           justifyContent: "space-evenly",
@@ -68,7 +68,7 @@ const Account = () => {
 
           },
         }}
-      >
+       >
         <Box
           sx={{
             width: { sm: "90vw", md: 450 },
