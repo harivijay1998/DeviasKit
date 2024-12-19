@@ -115,18 +115,18 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
         />
       </Box>
 
-      <Popper open={isAvatarMenuOpen} anchorEl={avatarRef.current} transition disablePortal>
+      <Popper open={isAvatarMenuOpen} anchorEl={avatarRef.current} transition disablePortal sx={{cursor:'pointer'}}>
         {({ TransitionProps }) => (
           <Grow {...TransitionProps} timeout={350}>
             <Paper sx={{ width: 250, boxShadow: 3, borderRadius: '10px' }}>
               <ClickAwayListener onClickAway={handleClickAway}>
                 <List>
                   <Box>
-                    <ListItem sx={{ mb: -3 }}>
+                    <ListItem sx={{ mb: -3, cursor:'pointer' }}>
                       <ListItemText primary="Sofia Rivers" />
                     </ListItem>
                     <ListItem>
-                      <ListItemText sx={{ color: '#aaa', fontSize: '4px' }}>SofiaRivers@example.com</ListItemText>
+                      <ListItemText sx={{ color: '#aaa', fontSize: '4px', cursor:'pointer' }}>SofiaRivers@example.com</ListItemText>
                     </ListItem>
                   </Box>
                   <Divider sx={{
@@ -136,15 +136,15 @@ const AppHeader = ({ toggleSidebar, onSearchToggle }) => {
                     marginRight: "-0px",
                   }} />
                   <Box>
-                    <ListItem button onClick={() => handleNavigation('/settings')} sx={{ mb: -2, textAlign: 'left' }}>
+                    <ListItem button onClick={() => handleNavigation('/settings')} sx={{ mb: -2, textAlign: 'left' , cursor:'pointer'}}>
                       <IconButton><SettingsOutlinedIcon /></IconButton>
                       <ListItemText primary="Settings" />
                     </ListItem>
-                    <ListItem sx={{ mb: -2, textAlign: 'left' }}>
+                    <ListItem sx={{ mb: -2, textAlign: 'left', cursor:'pointer' }}>
                       <IconButton><PeopleAltOutlinedIcon /></IconButton>
                       <ListItemText>Profile</ListItemText>
                     </ListItem>
-                    <ListItem button onClick={() => handleNavigation('/')} sx={{ textAlign: 'left' }}>
+                    <ListItem button onClick={() => handleNavigation('/')} sx={{ textAlign: 'left', cursor:'pointer' }}>
                       <IconButton><LogoutOutlinedIcon /></IconButton>
                       <ListItemText primary="Logout" />
                     </ListItem>
