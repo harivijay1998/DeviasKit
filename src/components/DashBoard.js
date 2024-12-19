@@ -325,7 +325,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left:{md:"600px" , sm:"83vw"},
+                  left:{md:"580px" , sm:"83vw"},
                   mt: "5px",
                   fontSize: "13px",
                   textTransform: "none",
@@ -413,7 +413,7 @@ const Dashboard = () => {
                   sx={{
                     backgroundColor: "transparent",
                     color: "black",
-                    left:{md:"280px", sm:"82vw"},
+                    left:{md:"270px", sm:"82vw"},
                     mt: "0px",
                     top:"10px",
                     fontSize: "13px",
@@ -487,7 +487,7 @@ const Dashboard = () => {
                 sx={{
                   backgroundColor: "transparent",
                   color: "black",
-                  left:{md:"700px", sm:"85vw"},
+                  left:{md:"690px", sm:"85vw"},
                   mt: "10px",
                   top:'-10px',
                   fontSize: "13px",
