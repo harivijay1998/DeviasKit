@@ -10,8 +10,8 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
   Drawer,
+  useMediaQuery,
 } from "@mui/material";
 import DashboardOutlinedIcon from "@mui/icons-material/Dashboard";
 import PeopleOutlinedIcon from "@mui/icons-material/People";
@@ -27,6 +27,8 @@ import Account from "./Account";
 const SideBar = ({ isSidebarVisible, setSidebarVisible, setActiveView }) => {
   const [activeItem, setActiveItem] = useState("Dashboard");
   const [workspace, setWorkspace] = useState("Devias");
+
+  const isXsDevice = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const handleChange = (event) => {
     setWorkspace(event.target.value);
@@ -57,28 +59,32 @@ const SideBar = ({ isSidebarVisible, setSidebarVisible, setActiveView }) => {
     { key: "Error", icon: <PeopleOutlinedIcon /> },
   ];
 
-  const checkWidth = () => {
-    if (window.innerWidth > 900) {
-      setSidebarVisible(true);
-    } else {
-      setSidebarVisible(false);
+  const toggleDrawer = () => {
+    if (isXsDevice) {
+      setSidebarVisible(!isSidebarVisible);
     }
   };
 
   useEffect(() => {
-    checkWidth();
-    window.addEventListener("resize", checkWidth);
+    const handleResize = () => {
+      if (!isXsDevice) {
+        setSidebarVisible(true);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
     return () => {
-      window.removeEventListener("resize", checkWidth);
+      window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isXsDevice, setSidebarVisible]);
 
   return (
     <Drawer
       open={isSidebarVisible}
-      onClose={() => setSidebarVisible(false)}
-      variant={isSidebarVisible ? "persistent" : "temporary"}
+      onClose={toggleDrawer} 
+        variant={isXsDevice ? "temporary" : "persistent"}
       anchor="left"
       PaperProps={{
         sx: {

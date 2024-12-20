@@ -161,7 +161,7 @@ const Customers = () => {
               sx={{
                 backgroundColor: "#635bff",
                 color: "white",
-                marginRight: 2,
+                left:{md:'-30px' , xs:'-2vw', sm:'-30px'},
                 height:'40px',
                 position:'relative',
                 top:'-100px',

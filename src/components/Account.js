@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
@@ -34,6 +34,16 @@ const Account = () => {
     city: "",
   };
 
+  const [avatarSrc, setavatarSrc] = useState("images/avatar.png");
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setavatarSrc(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = (values) => {
     console.log("Updated Profile Data:", values);
   };
@@ -53,46 +63,45 @@ const Account = () => {
       </Typography>
       <Box
         sx={{
-          width: {md:'1230px', sm:'150vw', xs:"87vw"},
+          width: { md: "1230px", sm: "150vw", xs: "87vw" },
           marginTop: "80px",
           display: "flex",
           justifyContent: "space-evenly",
           gap: "15px",
           paddingInlineStart: 2,
-          
+
           "@media (max-width:900px) and (min-width:768px)": {
             flexDirection: "column",
             alignItems: "center",
-            position:'relative',
-            left:'-28vw',
+            position: "relative",
+            left: "-28vw",
           },
 
           "@media (max-width:520px) and (min-width:320px)": {
-            flexDirection:"column",
-            gap:'20px',
-            height:'20vh'
-
-          }
+            flexDirection: "column",
+            gap: "20px",
+            height: "20vh",
+          },
         }}
-       >
+      >
         <Box
           sx={{
             width: { sm: "90vw", md: 450 },
             backgroundColor: "white",
             borderRadius: "20px",
-            border: '1px solid #c3c7cc63',
+            border: "1px solid #c3c7cc63",
             padding: "30px",
             textAlign: "center",
             height: "275px",
           }}
         >
           <Avatar
-            src="images/avatar.png"
+            src={avatarSrc}
             alt="Profile Avatar"
             sx={{ width: "80px", height: "80px", margin: "0 auto 10px" }}
           />
           <Typography variant="h5" fontWeight="500" sx={{ marginTop: "10px" }}>
-            Sofia Rivers
+            Hari Vijay
           </Typography>
           <Typography variant="body2" color="gray">
             Los Angeles USA
@@ -106,18 +115,34 @@ const Account = () => {
               marginBlockStart: "30px",
               marginLeft: "-28px",
               marginRight: "-28px",
-            marginTop:'80px'
+              marginTop: "80px",
             }}
           />
-<Button
+          <Button
             sx={{
               top: "20px",
               textTransform: "none",
               fontSize: "14px",
               color: "#635bff",
               paddingBlockStart: "0px",
+              position: "relative",
             }}
-          >            Upload picture
+          >
+            Upload picture
+            <input
+              type="file"
+              accept="image/*"
+              style={{
+                opacity: 0,
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                cursor: "pointer",
+              }}
+              onChange={handleImageUpload}
+            />
           </Button>
         </Box>
 
@@ -126,7 +151,7 @@ const Account = () => {
             width: { sm: "90vw", md: 900 },
             backgroundColor: "white",
             borderRadius: "20px",
-            border: '1px solid #c3c7cc63',
+            border: "1px solid #c3c7cc63",
             padding: "25px",
           }}
         >
@@ -157,9 +182,9 @@ const Account = () => {
                     flexWrap: "wrap",
                     gap: "20px",
                     paddingBlockStart: "20px",
-            paddingBlockEnd: "10px",
-            paddingInline: "25px",
-                    
+                    paddingBlockEnd: "10px",
+                    paddingInline: "25px",
+
                     "@media (max-width:900px) and (min-width:768px)": {
                       flexDirection: "column",
                     },
@@ -184,7 +209,6 @@ const Account = () => {
                         {...field}
                         label="Last name"
                         variant="outlined"
-                        
                         error={meta.touched && Boolean(meta.error)}
                         helperText={meta.touched && meta.error}
                         sx={{ flex: "1 1 48%" }}
@@ -240,15 +264,15 @@ const Account = () => {
                     )}
                   </Field>
                 </Box>
-
                 <Divider
-            sx={{
-              backgroundColor: "#c3c7cc63",
-              marginBlockStart: "30px",
-              marginLeft: "-16px",
-              marginRight: "-16px",
-            }}
-          />                <Box textAlign="right">
+                  sx={{
+                    backgroundColor: "#c3c7cc63",
+                    marginBlockStart: "30px",
+                    marginLeft: "-16px",
+                    marginRight: "-16px",
+                  }}
+                />{" "}
+                <Box textAlign="right">
                   <Button
                     type="submit"
                     variant="contained"
@@ -258,7 +282,7 @@ const Account = () => {
                       padding: "8px 20px",
                       textTransform: "none",
                       borderRadius: "10px",
-                      top:'15px'
+                      top: "15px",
                     }}
                   >
                     Save details

@@ -229,7 +229,8 @@ const Dashboard = () => {
         sx={{
           paddingInlineStart: 2,
           backgroundColor: "#f5f5f5",
-          minHeight: "180vh",
+          minHeight: "60vh",
+          height:{md:'100vh', sm:'100vh', xs:'20vh'},
           marginTop: "50px",
           marginBlockEnd: "130px",
           marginLeft: "0px",
